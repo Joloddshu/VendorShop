@@ -5,6 +5,9 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
+                @if(session('status'))
+                    {{"Registered But Not Verified "}}
+                    @endif
                 <div class="panel-heading">Login</div>
 
                 <div class="panel-body">
