@@ -1,13 +1,28 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-2 colo-md-10">
+                @if(session('status'))
+                    <div class="alert alert-warning alert-dismissible" role="alert">
+                        <button style="position: relative;
+    top: -14px;
+    right: -21px;
+    color: #fff !important;
+    background: #4485eb;
+    padding: 16px;" type="button" class="close" data-dismiss="alert" aria-label="Close"><span style="" aria-hidden="true">&times;</span></button>
+                        <strong>{{session('status')}}!</strong>
+                    </div>
+                @endif
+            </div>
+        </div>
+    </div>
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                @if(session('status'))
-                    {{"Registered But Not Verified "}}
-                    @endif
+
                 <div class="panel-heading">Login</div>
 
                 <div class="panel-body">

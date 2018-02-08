@@ -26,4 +26,13 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Check Role For Admins and Vendors
+     */
+    public function hasrole(){
+            return $this->role;
+    }
+
+
 }

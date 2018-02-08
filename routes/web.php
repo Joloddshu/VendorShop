@@ -20,3 +20,26 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/verifyEmailFirst','Auth\RegisterController@verifyEmailFirst')->name('verifyEmailFirst');
 Route::get('/verify/{email}/{verifyToken}','Auth\RegisterController@sendEmailDone')->name('sendEmailDone');
+
+
+/*
+ * Route group for admin
+ */
+
+Route::group(['middleware' => ['auth','admin']],function (){
+
+    Route::get('/admin',function (){
+        return "hello admin";
+    });
+});
+
+/*
+ * Route Group For Vendors
+ */
+Route::group(['middleware' => ['auth','vendors']],function (){
+
+    Route::get('/vendors',function (){
+        return "hello vendors";
+    });
+});
+

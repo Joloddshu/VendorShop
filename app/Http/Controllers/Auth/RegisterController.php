@@ -96,11 +96,12 @@ class RegisterController extends Controller
         $user = User::where(['email'=>$email,'verifyToken'=>$verifyToken])->first();
         if($user)
         {
-            return user::where(['email'=>$email,'verifyToken'=>$verifyToken])->update(['status'=>'1','verifyToken'=>null]);
+             user::where(['email'=>$email,'verifyToken'=>$verifyToken])->update(['status'=>'1','verifyToken'=>null]);
+            return redirect()->route('login')->with('status','You can now login with your email and password !');
 
         }
         else{
-            return 'user not found';
+            return redirect()->route('login')->with('status','User Token Expired Or You Already Confirm Your Registration');
         }
     }
 }
