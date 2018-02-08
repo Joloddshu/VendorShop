@@ -28,9 +28,7 @@ Route::get('/verify/{email}/{verifyToken}','Auth\RegisterController@sendEmailDon
 
 Route::group(['middleware' => ['auth','admin']],function (){
 
-    Route::get('/admin',function (){
-        return "hello admin";
-    });
+    Route::get('/admin','adminController@index')->name('admin.index');
 });
 
 /*
