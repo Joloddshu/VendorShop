@@ -14,70 +14,98 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
     <title>Vendor Shop</title>
+    @yield('css')
+
 </head>
 <body>
 
 <!-- Header Top -->
 
 <section id="header-top">
-  <div class="container-fluid header-top">
-      <div class="row" >
-            <div class="col-md-10">
-                <div class="header-top-content">
-                    <ul>
-                        <li>
-                            Welcome Our Online Store!</li>
-                        <li>
-                            <i class="far fa-envelope"></i> Email : nsmajm@gmail.com</li>
-                        <li>
-                            <i class="fas fa-phone"></i> Hotline : Rabby Joloddshu (Maid Of the shop)
-                        </li>
-                    </ul>
-               </div>
-            </div>
-          <div class="col-md-2">
-              <a class="vendor-button" href="#">Want To Become Vendor</a>
-              </div>
-          </div>
-         </div>
-  </div>
+  @include('include.header')
 </section>
 <div class="empty-space"></div>
 
+
+<section id="mainmenu">
+    <div class="container">
+        <div class="row">
+            <div class="navbar">
+                <div class="container">
+                    <div class="row">
+                        <nav class="navbar navbar-default navmenu" >
+                            <div class="container-fluid">
+                                <!-- Brand and toggle get grouped for better mobile display -->
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+
+                                </div>
+
+                                <!-- Collect the nav links, forms, and other content for toggling -->
+                                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                    <ul class="nav navbar-nav">
+                                        <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+                                        <li><a href="#">Computer</a></li>
+                                        <li><a href="#">Computer</a></li>
+                                        <li><a href="#">Computer</a></li>
+                                        <li><a href="#">Computer</a></li>
+                                        <li><a href="#">Computer</a></li>
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#">Action</a></li>
+                                                <li><a href="#">Another action</a></li>
+                                                <li><a href="#">Something else here</a></li>
+                                                <li role="separator" class="divider"></li>
+                                                <li><a href="#">Separated link</a></li>
+                                                <li role="separator" class="divider"></li>
+                                                <li><a href="#">One more separated link</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+
+                                </div><!-- /.navbar-collapse -->
+                            </div><!-- /.container-fluid -->
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="empty-space"></div>
+<section id="slider">
+   <div class="container-fluid">
+       <div class="row">
+           @yield('slider')
+       </div>
+   </div>
+</section>
+
 <div class="empty-space"></div>
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="left_header col-md-3">
-            <img src="{{asset('images/logo.png')}}" class="img-responsive" style="height: 55px;">
-        </div>
-        <div class="searcharea col-md-6">
-            <form class="form-inline" method="post">
 
-                <div class="form-group">
-                    <label for="inputPassword2" ></label>
-                    <input type="password" class="form-control search-bar" id="inputPassword2" placeholder="Search Product here">
-                </div>
-                <button type="submit" class="btn btn-info search-button"><i class="fa fa-search"></i></button>
-            </form>
+<section id="maincontent">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="leftsidebar col-md-2">
+                @yield('leftsidebar')
+            </div>
+            <div class="content col-md-8">
+                @yield('content')
+            </div>
+            <div class="rightsidebar col-md-2">
+                @yield('rightsidebar')
+            </div>
         </div>
-        <div class="right_header colo-md-3">
-            <ul>
-
-                <li>
-                    <a href="{{route('login')}}"><img src="{{asset('images/loginbutton.png')}}" alt=""></a>
-                </li>
-                <li>
-                    <img src="{{asset('/images/cart.png')}}" alt="">
-                </li>
-            </ul>
-        </div>
-
     </div>
-</div>
-
-
-
+</section>
 
 
 
