@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('verifyToken')->nullable();
             $table->boolean('status')->default('0');
             $table->string('role')->default('user');
+          //  $table->foreign('id')->references('id')->on('order')->onDelete('cascade');
             $table->rememberToken();
             $table->timestamps();
         });

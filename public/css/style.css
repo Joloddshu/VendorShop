@@ -18,12 +18,11 @@ body{
 ul{
     list-style:none;
 }
-li{
-    float: left;
-}
+
 .header-top-content ul li{
     color: #fff;
     padding-right: 20px;
+    float: left;
 }
 .vendor-button{
     color: #000;
@@ -38,7 +37,6 @@ li{
 .vendor-button a:focus, a:hover {
     color: #000;
     background: #fff;
-    transition: 0.5s ease-in;
     text-decoration: none !important;
 }
 .admin_button{
@@ -72,10 +70,12 @@ li{
 }
 .header_right_first{
     padding-right: 80px;
+    float: left;
 }
 .header_right_last{
     position: relative;
     bottom:20px;
+    float: left;
 }
 .guest_text,.cart_text{
     display: block;
@@ -106,21 +106,19 @@ li{
 .navmenu{
     background: transparent;
     border: none;
-    position: relative;
     top:5px;
-    left:13%;
+
 }
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
     color: #FF9800 !important;
     background-color: transparent !important;
+
 }
 .navbar-default .navbar-nav>li>a {
     text-transform: uppercase;
     background-color: transparent;
-    position: relative;
     padding: 11px 18px;
     font-weight: 700;
-    display: block;
     font-size: 14px;
     line-height: 22px;
     color: #222222

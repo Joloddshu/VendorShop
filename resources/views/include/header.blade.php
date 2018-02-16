@@ -46,11 +46,11 @@
             <img src="{{asset('images/logo.png')}}" class="img-responsive" style="height: 55px;">
         </div>
         <div class="searcharea col-md-5">
-            <form class="form-inline" method="post">
+            <form class="form-inline" >
 
                 <div class="form-group">
-                    <label for="inputPassword2" ></label>
-                    <input type="password" class="form-control search-bar" id="inputPassword2" placeholder="Search Product here">
+                    <label for="search" ></label>
+                    <input type="text" class="form-control search-bar" name="searchitem" id="searchitem" placeholder="Search Product here">
                 </div>
                 <button type="submit" class="btn btn-info search-button"><i class="fa fa-search"></i></button>
             </form>
