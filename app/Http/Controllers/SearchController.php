@@ -17,7 +17,7 @@ class SearchController extends Controller
         }
        else{
             foreach ($products as $key => $value){
-                $searchResult [] = $value->product_name;
+                $searchResult [] = $value->product_name .'  '. $value->product_size;
            }
 
        }

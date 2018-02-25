@@ -13,21 +13,23 @@ class CreateOrderTable extends Migration
      */
     public function up()
     {
-        Schema::create('order', function (Blueprint $table) {
+        Schema::create('orders', function (Blueprint $table) {
             $table->increments('order_id');
-            $table->string('product_id');
-            $table->string('id');
-            $table->string('order_amount');
-            $table->string('order_quantity');
+            $table->unsignedInteger('product_id');
+            $table->unsignedInteger('user_id');
+            $table->double('order_amount');
+            $table->unsignedInteger('order_quantity');
             $table->string('order_address');
             $table->string('order_city');
             $table->string('order_zipcode');
             $table->string('order_country');
             $table->string('order_state');
             $table->string('order_phone_number');
-            $table->string('order_tax');
+            $table->float('order_tax');
             $table->string('order_email');
             $table->string('order_tracking_number');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('product_id')->references('product_id')->on('products')->onDelete('cascade');
             $table->timestamps();
 
 

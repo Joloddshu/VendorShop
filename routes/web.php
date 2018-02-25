@@ -26,19 +26,26 @@ Route::get('/verify/{email}/{verifyToken}','Auth\RegisterController@sendEmailDon
 Route::get('/search','SearchController@search');
 
 /*
- * Route group for admin
- */
+ * check user have session or not
+*/
+Route::group(['middleware' => ['auth']],function (){
 
-Route::group(['middleware' => ['auth','admin']],function (){
-
-    Route::get('/admin','adminController@index')->name('admin.index');
-});
+    Route::get('/log','HomeController@loggeduser');
 
 /*
- * Route Group For Vendors
- */
-Route::group(['middleware' => ['auth','vendors']],function (){
+* Route group for admin
+*/
+    Route::group(['middleware' => ['auth','admin']],function (){
 
-   Route::get('/vendors','vendorController@index')->name('vendors.index');
+        Route::get('/admin','adminController@index')->name('admin.index');
+        Route::get('/showuser','usercontroller@index')->name('admin.showuser');
+    });
+
+    /*
+     * Route Group For Vendors
+     */
+    Route::group(['middleware' => ['auth','vendors']],function (){
+
+       Route::get('/vendors','vendorController@index')->name('vendors.index');
+    });
 });
-

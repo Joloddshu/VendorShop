@@ -70,7 +70,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        Session::flash('status',"Successfully Registered");
+        Session::flash('status',"Successfully Registered !! Please Verify Your Email Address");
         $user = User::create([
             'firstname' => $data['firstname'],
             'lastname' => $data['lastname'],

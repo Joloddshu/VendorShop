@@ -13,8 +13,9 @@ class CreateUsersProfileTable extends Migration
      */
     public function up()
     {
-        Schema::create('profile', function (Blueprint $table) {
+        Schema::create('profiles', function (Blueprint $table) {
             $table->increments('profile_id');
+            $table->unsignedInteger('user_id');
             $table->string('city');
             $table->string('country');
             $table->string('zipcode');
@@ -22,8 +23,8 @@ class CreateUsersProfileTable extends Migration
             $table->string('profileimage');
             $table->string('dateofbirth');
             $table->string('bio');
-            $table->foreign('profile_id')->references('id')->on('users')->onDelete('cascade');
-
+            $table->double('balance')->default('0');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

@@ -127,10 +127,10 @@
                             <a href="#">
                                 <i class="fa fa-user"></i>
                                 <span>Users</span>
-                                <i class="fa fa-angle-left pull-right"></i>
+                                <i class="fa fa-angle-right pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="grids.html"><i class="fa fa-angle-right"></i> Show All user</a></li>
+                                <li><a href="{{route('admin.showuser')}}"><i class="fa fa-angle-right"></i> Show All user</a></li>
                                 <li><a href="media.html"><i class="fa fa-angle-right"></i> Manage User</a></li>
                                 <li><a href="media.html"><i class="fa fa-angle-right"></i> Change User Role</a></li>
                                 <li><a href="media.html"><i class="fa fa-angle-right"></i>Add User</a></li>
@@ -486,6 +486,6 @@
 <!-- Bootstrap Core JavaScript -->
 <script src="http://cdn.hireseller.com/js/bootstrap.js"> </script>
 <!-- //Bootstrap Core JavaScript -->
-
+@yield('scripts')
 </body>
 </html>

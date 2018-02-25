@@ -39,6 +39,7 @@
 
 <div class="empty-space"></div>
 
+
 <!--Header Bottom  -->
 <div class="container-fluid">
     <div class="row">
@@ -56,50 +57,51 @@
             </form>
         </div>
 
-        <div class="right_header colo-md-4">
+        <div class="right_header col-md-4">
             <ul>
                 @guest
                 <li class="header_right_first">
                     <img src="{{asset('/images/loginbutton.png')}}" alt="">
                     <div class="login_area">
                         <span class="guest_text">Hello Guest</span>
-                        <a href="{{route('login')}}">Login</a>
+                        <a href="{{route('login')}}">Login</a> ||
+                        <a href="{{route('register')}}">Register</a>
                     </div>
 
                 </li>
                 @else
 
-                    <li class="header_right_first">
+                    <li class="header_right_first">  <li style="float:left;">
                         <img src="{{asset('/images/loginbutton.png')}}" alt="">
-                        <div class="login_area">
-                            <span class="guest_text">Hello {{Auth::user()->firstname}}</span>
-                            <span class="label label-primary">{{Auth::user()->role}}</span>
 
-                        </div>
-                    <li class="dropdown" style="padding-right: 30px">
-                        <a  href="#" class="dropdown-toggle btn btn-info" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Account <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#"><i class="fa fa-cog"></i>   My Profile</a></li>
-                            <li><a href="#"><i class="fa fa-user"></i>   Update Profile</a></li>
-                            <li><a href="#"><i class="fas fa-history"></i>   Order History</a></li>
-                            <li>
-                                <a href="{{ route('logout') }}"
-                                   onclick="event.preventDefault();
+                        <div class="dropdown account_button">
+                            <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                {{Auth::user()->firstname}}
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu account_dropdown" aria-labelledby="dropdownMenu1">
+                                <li><a href="#"><i class="fa fa-cog"></i>   My Profile</a></li>
+                                <li><a href="#"><i class="fa fa-user"></i>   Update Profile</a></li>
+                                <li><a href="#"><i class="fas fa-history"></i>   Order History</a></li>
+                                <li>
+                                    <a href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                    <i class="fas fa-sign-out-alt"></i>   Logout
-                                </a>
+                                        <i class="fas fa-sign-out-alt"></i>   Logout
+                                    </a>
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    {{ csrf_field() }}
-                                </form>
-                            </li>
-                        </ul>
-                    </li>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
+
+                                </li>
+                            </ul>
+                        </div>
                     </li>
 
                     @endguest
 
-                    <li class="header_right_last">
+                    <li class="header_right_last" style="float: left">
                         <div class="cart_area">
                             <a class="top_login" href="#"><img src="{{asset('/images/cart.png')}}" alt=""></a>
                             <div class="sub_cart">
