@@ -28,18 +28,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="UserController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UserController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="69" column="0" lean-forward="true" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
-              <folding>
-                <element signature="e#40#53#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="manageuser.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/admin/manageuser.blade.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -50,6 +38,16 @@
                 <element signature="e#4628#4664#0#HTML" expanded="true" />
                 <marker date="1520561397002" expanded="true" signature="5593:5704" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="124">
+              <caret line="4" column="7" lean-forward="false" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -127,7 +125,6 @@
         <option value="$PROJECT_DIR$/database/migrations/2018_02_16_145938_create_order_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2018_02_16_143830_create_product_category_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2018_02_16_143113_create_product_table.php" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/config/mail.php" />
         <option value="$PROJECT_DIR$/resources/views/include/header.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" />
@@ -143,6 +140,7 @@
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/manageuser.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/UserController.php" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -334,12 +332,12 @@
       <workItem from="1520173192670" duration="1703000" />
       <workItem from="1520344186961" duration="3562000" />
       <workItem from="1520418355612" duration="7776000" />
-      <workItem from="1520510833857" duration="33995000" />
+      <workItem from="1520510833857" duration="34360000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="210630000" />
+    <option name="totallyTimeSpent" value="210995000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -523,13 +521,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="382">
           <caret line="31" column="7" lean-forward="false" selection-start-line="31" selection-start-column="7" selection-end-line="31" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -743,18 +734,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/manageuser.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="57" column="107" lean-forward="false" selection-start-line="57" selection-start-column="107" selection-end-line="57" selection-end-column="107" />
-          <folding>
-            <element signature="e#3904#3911#1#HTML" expanded="true" />
-            <element signature="e#4628#4664#0#HTML" expanded="true" />
-            <marker date="1520561397002" expanded="true" signature="5593:5704" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="427">
@@ -770,6 +749,26 @@
           <folding>
             <element signature="e#40#53#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/manageuser.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="327">
+          <caret line="57" column="107" lean-forward="false" selection-start-line="57" selection-start-column="107" selection-end-line="57" selection-end-column="107" />
+          <folding>
+            <element signature="e#3904#3911#1#HTML" expanded="true" />
+            <element signature="e#4628#4664#0#HTML" expanded="true" />
+            <marker date="1520561397002" expanded="true" signature="5593:5704" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="4" column="7" lean-forward="false" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>
