@@ -1,5 +1,11 @@
 @extends('layouts.homepage')
-
+@section('css')
+    <style>
+        .hidden_error{
+            display: none;
+        }
+    </style>
+    @endsection
 @section('content')
 <div class="container">
     <div class="row">
@@ -8,7 +14,7 @@
                 <div class="panel-heading">Register</div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('register') }}">
+                    <form class="form-horizontal" method="POST" action="{{ route('register') }}" id="formdata">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('firstname') ? ' has-error' : '' }}">
@@ -45,6 +51,7 @@
                                 @if ($errors->has('username'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('username') }}</strong>
+                                        <strong>username not available</strong>
                                     </span>
                                 @endif
                             </div>
@@ -67,8 +74,8 @@
                             <div class="col-md-6 input-box">
 
                                 <input id="phonenumber" type="text" class="form-control" name="phonenumber" value="{{ old('phonenumber') }}" style="
-                                padding-left: 30px;font-weight: 400;position:relative;top: 2px;font-family: sans-serif" required>
-                                <span class="unit">+88</span>
+                                padding-left: 37px;font-weight: 400;position:relative;top: 2px;font-family: sans-serif" required>
+                                <span class="unit">+880</span>
                                 @if ($errors->has('phonenumber'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('phonenumber') }}</strong>
@@ -95,12 +102,19 @@
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                                <div class="row">
+                                    <div class="container">
+                                        <div class="col-md-12">
+                                           <span id="ConfirmPasswordError" class="hidden_error"><span class="label label-danger">Confirm Password Does Not Matched</span></span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary" id="btnsubmit">
                                     Register
                                 </button>
                             </div>
@@ -112,3 +126,27 @@
     </div>
 </div>
 @endsection
+
+
+@section('scripts')
+    <script type="text/javascript">
+        var username = $('#username').val();
+
+        $(document).ready(function(){
+            $('#password-confirm').keyup(function(){
+
+
+                    if($(this).val()==$('#password').val()){
+                        $('#ConfirmPasswordError').addClass('hidden_error');
+                    }
+
+
+                else{
+                    $('#ConfirmPasswordError').removeClass('hidden_error');
+                }
+            });
+
+
+        });
+    </script>
+    @endsection

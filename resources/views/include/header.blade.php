@@ -44,7 +44,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="left_header col-md-3">
-            <img src="{{asset('images/logo.png')}}" class="img-responsive" style="height: 55px;">
+            <a href="{{route('home.index')}}"> <img src="{{asset('images/logo.png')}}" class="img-responsive" style="height: 55px;"></a>
         </div>
         <div class="searcharea col-md-5">
             <form class="form-inline" >

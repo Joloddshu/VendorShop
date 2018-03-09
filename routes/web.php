@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
     return view('home.index');
-});
+})->name('home.index');
 
 
 
@@ -38,7 +38,12 @@ Route::group(['middleware' => ['auth']],function (){
     Route::group(['middleware' => ['auth','admin']],function (){
 
         Route::get('/admin','adminController@index')->name('admin.index');
-        Route::get('/showuser','usercontroller@index')->name('admin.showuser');
+        Route::get('/showuser','UserController@index')->name('admin.showuser');
+        Route::get('/manageuser','UserController@manageuser')->name('admin.manageuser');
+        Route::get('/admin/viewuser/{id}','UserController@show')->name('admin.show');
+        Route::post('delete','UserController@destroy')->name('admin.delete');
+        Route::get('edit/{id}','UserController@edit')->name('admin.edit.get');
+        Route::post('edit/{id}','UserController@edit')->name('admin.edit');
     });
 
     /*

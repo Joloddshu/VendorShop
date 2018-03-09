@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
@@ -47,7 +48,7 @@ class RegisterController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param  array $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
@@ -65,43 +66,46 @@ class RegisterController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param  array $data
      * @return \App\User
      */
     protected function create(array $data)
     {
-        Session::flash('status',"Successfully Registered !! Please Verify Your Email Address");
+        Session::flash('status', "Successfully Registered !! Please Verify Your Email Address");
         $user = User::create([
             'firstname' => $data['firstname'],
             'lastname' => $data['lastname'],
             'username' => $data['username'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-            'phonenumber' =>$data['phonenumber'],
-            'verifyToken' =>Str::random(40),
+            'phonenumber' => $data['phonenumber'],
+            'verifyToken' => Str::random(40),
 
         ]);
         $thisUser = User::findorFail($user->id);
         $this->sendEmail($thisUser);
         return $user;
     }
-    public  function sendEmail($thisUser){
+
+    public function sendEmail($thisUser)
+    {
         Mail::to($thisUser['email'])->send(new verifyEmail($thisUser));
     }
 
-    public function verifyEmailFirst(){
+    public function verifyEmailFirst()
+    {
         return view('email.verifyEmailFirst');
     }
-    public function sendEmailDone($email,$verifyToken){
-        $user = User::where(['email'=>$email,'verifyToken'=>$verifyToken])->first();
-        if($user)
-        {
-             user::where(['email'=>$email,'verifyToken'=>$verifyToken])->update(['status'=>'1','verifyToken'=>null]);
-            return redirect()->route('login')->with('status','You can now login with your email and password !');
 
-        }
-        else{
-            return redirect()->route('login')->with('status','User Token Expired Or You Already Confirm Your Registration');
+    public function sendEmailDone($email, $verifyToken)
+    {
+        $user = User::where(['email' => $email, 'verifyToken' => $verifyToken])->first();
+        if ($user) {
+            user::where(['email' => $email, 'verifyToken' => $verifyToken])->update(['status' => '1', 'verifyToken' => null]);
+            return redirect()->route('login')->with('status', 'You can now login with your email and password !');
+
+        } else {
+            return redirect()->route('login')->with('status', 'User Token Expired Or You Already Confirm Your Registration');
         }
     }
 }

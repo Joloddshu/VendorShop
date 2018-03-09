@@ -29,6 +29,7 @@
     <p style="margin-top: 50px">You can Login Your account after Confirm Your email address</p>
 
     <p>Thanks</p>
+    
 </div>
 
 </body>

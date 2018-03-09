@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use function MongoDB\BSON\toJSON;
 
 class UserController extends Controller
 {
@@ -14,7 +16,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $userdetails = DB::table('users')->get();
+        $userdetails = DB::table('users')->orderBy('id', 'desc')->paginate(20);
 
             return view('admin.showuser')->with('Showuser',$userdetails);
     }
@@ -48,18 +50,29 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $showuser = DB::table('users')->where('id',$id)->first();
+
     }
 
+    /*
+     * open the manage user page From the admin panel
+     */
+    public function manageuser(){
+          $manageuser = DB::table('users')->orderBy('id', 'desc')->paginate(20);
+            return view('admin.manageuser')->with('manageuser',$manageuser);
+    }
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+
     public function edit($id)
     {
-        //
+        $manageuser = DB::table('users')->where('id',$id)->first();
+         return response()->json($manageuser);
     }
 
     /**
@@ -80,8 +93,12 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+
+              User::where('id', $request->id)->delete();
+
+
+
     }
 }

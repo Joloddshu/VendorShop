@@ -1,7 +1,7 @@
 @extends('admin.dashboard')
 
 @section('mainpage')
-    <div id="page-wrapper" style="margin: 0 0 0 6.5em;">
+    <div id="page-wrapper" style="margin: 0 0 0 0em;">
         <div class="main-page">
             <div class="tables">
 
@@ -18,7 +18,7 @@
                             <th>Status</th>
                             <th>Created At</th>
                             <th>Updated at</th>
-                            <th>Action</th>
+
                         </tr>
                         </thead>
                         <tbody>
@@ -30,7 +30,7 @@
                             <td>{{$user->phonenumber}}</td>
                             <td>
                                 @if($user->role == 'admin')
-                                    <span class="label label-danger">{{$user->role}}</span>
+                                    <span class="label label-primary">{{$user->role}}</span>
 
                                     @elseif($user->role=='vendors')
                                     <span class="label label-primary">{{$user->role}}</span>
@@ -47,12 +47,18 @@
                             </td>
                             <td>{{$user->created_at}}</td>
                             <td>{{$user->updated_at }}</td>
-                            <td>{{$user->id}}</td>
+
 
                         </tr>
+
                         @endforeach
+
                         </tbody>
+
                     </table>
+                    <div class="pagination">
+                        {{ $Showuser->fragment('user    ')->links() }}
+                    </div>
                 </div>
             </div>
         </div>

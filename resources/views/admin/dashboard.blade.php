@@ -23,7 +23,7 @@
     <!-- js-->
     <script src="http://cdn.hireseller.com/js/jquery-1.11.1.min.js"></script>
     <script src="http://cdn.hireseller.com/js/modernizr.custom.js"></script>
-
+    <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
     <!--webfonts-->
     <link href="//fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet">
     <!--//webfonts-->
@@ -131,7 +131,7 @@
                             </a>
                             <ul class="treeview-menu">
                                 <li><a href="{{route('admin.showuser')}}"><i class="fa fa-angle-right"></i> Show All user</a></li>
-                                <li><a href="media.html"><i class="fa fa-angle-right"></i> Manage User</a></li>
+                                <li><a href="{{route('admin.manageuser')}}"><i class="fa fa-angle-right"></i> Manage User</a></li>
                                 <li><a href="media.html"><i class="fa fa-angle-right"></i> Change User Role</a></li>
                                 <li><a href="media.html"><i class="fa fa-angle-right"></i>Add User</a></li>
                             </ul>
@@ -435,6 +435,7 @@
 </div>
 
 <!-- new added graphs chart js-->
+<script
 
 <script src="http://cdn.hireseller.com/js/Chart.bundle.js"></script>
 <script src="http://cdn.hireseller.com/js/utils.js"></script>
@@ -481,6 +482,7 @@
 
 
 <!-- //for index page weekly sales java script -->
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
 
 <!-- Bootstrap Core JavaScript -->

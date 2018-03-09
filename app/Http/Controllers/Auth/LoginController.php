@@ -38,7 +38,7 @@ class LoginController extends Controller
     }
     /**
      * Get the needed authorization credentials from the request.
-     *
+     * check the username password and status from the database
      * @param  \Illuminate\Http\Request  $request
      * @return array
      */
