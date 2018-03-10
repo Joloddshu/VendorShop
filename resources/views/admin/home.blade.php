@@ -42,7 +42,7 @@
             <div class="r3_counter_box">
                 <i class="pull-left fa fa-users dollar2 icon-rounded"></i>
                 <div class="stats">
-                    <h5><strong>1450</strong></h5>
+                    <h5><strong>{{\App\User::get()->count()}}</strong></h5>
                     <span>Total Users</span>
                 </div>
             </div>

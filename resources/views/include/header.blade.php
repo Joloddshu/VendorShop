@@ -80,7 +80,7 @@
                                 <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu account_dropdown" aria-labelledby="dropdownMenu1">
-                                <li><a href="#"><i class="fa fa-cog"></i>   My Profile</a></li>
+                                <li><a href="{{route('user.editprofile',Auth::user()->id)}}"><i class="fa fa-cog"></i>   edit Profile</a></li>
                                 <li><a href="#"><i class="fa fa-user"></i>   Update Profile</a></li>
                                 <li><a href="#"><i class="fas fa-history"></i>   Order History</a></li>
                                 <li>

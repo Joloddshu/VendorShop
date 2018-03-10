@@ -21,9 +21,27 @@ $factory->define(App\User::class, function (Faker $faker) {
         'email' => $faker->unique()->safeEmail,
         'phoneNumber' =>$faker->phoneNumber,
         'password' => bcrypt('secret'),
-        'verifyToken' => str_random(10),
+        'verifyToken' => str_random(50),
         'status' =>$faker->boolean,
-        'role' => $faker->jobTitle,
+        'role' => 'user',
         'remember_token' => str_random(10),
     ];
 });
+
+
+// $factory->define(App\Profile::class, function (Faker $faker) {
+//     return [
+//         'user_id' => function () {
+//            return factory(App\User::class)->create()->id;
+//         },
+//         'city' => $faker->city,
+//         'country' => $faker->country,
+//         'zipcode' => $faker->randomDigit,
+//         'streetaddress' =>$faker->streetAddress,
+//         'dateofbirth' =>$faker->dateTime('2014-02-25 08:37:17'),
+//         'profileimage' => 'Null',
+//         'bio' =>$faker->text($maxNbChars = 100),
+//         'balance' => $faker->randomDigit,
+        
+//     ];
+// });

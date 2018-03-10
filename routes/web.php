@@ -30,20 +30,20 @@ Route::get('/search','SearchController@search');
 */
 Route::group(['middleware' => ['auth']],function (){
 
-    Route::get('/log','HomeController@loggeduser');
+    Route::get('/log','HomeController@loggeduser'); //test the Middleware Works or Not
+    Route::get('/edit/{id}','ProfileController@getEditProfile')->name('user.editprofile'); //Retrieve the User profile Using the id
 
 /*
 * Route group for admin
 */
     Route::group(['middleware' => ['auth','admin']],function (){
 
-        Route::get('/admin','adminController@index')->name('admin.index');
-        Route::get('/showuser','UserController@index')->name('admin.showuser');
-        Route::get('/manageuser','UserController@manageuser')->name('admin.manageuser');
-        Route::get('/admin/viewuser/{id}','UserController@show')->name('admin.show');
-        Route::post('delete','UserController@destroy')->name('admin.delete');
-        Route::get('edit/{id}','UserController@edit')->name('admin.edit.get');
-        Route::post('edit/{id}','UserController@edit')->name('admin.edit');
+        Route::get('/admin','adminController@index')->name('admin.index'); // show the admin main page
+        Route::get('/showuser','UserController@index')->name('admin.showuser');//show the admin show user pages
+        Route::get('/manageuser','UserController@manageuser')->name('admin.manageuser');//show the admin manage user page
+        Route::post('delete','UserController@destroy')->name('admin.delete'); //open the delete modal
+        Route::get('edit/user/{id}','UserController@edit')->name('admin.edit.get'); //trying to get the user details and admin can modify them
+
     });
 
     /*

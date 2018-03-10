@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use function MongoDB\BSON\toJSON;
+use App\Profile;
 
 class UserController extends Controller
 {
@@ -13,6 +13,10 @@ class UserController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
+     */
+    /*
+     * show  All user
+     * pagination 20
      */
     public function index()
     {
@@ -50,7 +54,6 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $showuser = DB::table('users')->where('id',$id)->first();
 
     }
 
@@ -68,11 +71,17 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-
+    /*
+     * trying to show the user edit page in the admin area
+     * can modify only the user role and monitor the user activity
+     */
     public function edit($id)
     {
-        $manageuser = DB::table('users')->where('id',$id)->first();
-         return response()->json($manageuser);
+
+        $edituser =User::with('profile')->find($id);
+
+
+        return view('admin.edituser')->with('edituser',$edituser);
     }
 
     /**
@@ -84,21 +93,23 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**
      * Remove the specified resource from storage.
-     *
+     *Remove the use from the database using the Request
      * @param  int  $id
      * @return \Illuminate\Http\Response
+     */
+    /*
+     * Grab the id from the request using ajax and jquery and trying to delete the user using there id
+     * Further Development that move to another table called trash user
      */
     public function destroy(Request $request)
     {
 
               User::where('id', $request->id)->delete();
-
-
 
     }
 }

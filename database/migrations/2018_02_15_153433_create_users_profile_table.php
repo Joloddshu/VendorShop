@@ -24,7 +24,7 @@ class CreateUsersProfileTable extends Migration
             $table->string('dateofbirth');
             $table->string('bio');
             $table->double('balance')->default('0');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

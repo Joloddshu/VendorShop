@@ -4,13 +4,14 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Str;
-
+use App\Profile;
 use App\Mail\verifyEmail;
 
 class RegisterController extends Controller
@@ -81,6 +82,9 @@ class RegisterController extends Controller
             'phonenumber' => $data['phonenumber'],
             'verifyToken' => Str::random(40),
 
+        ]);
+        Profile::create([
+            'user_id' =>$user->id
         ]);
         $thisUser = User::findorFail($user->id);
         $this->sendEmail($thisUser);

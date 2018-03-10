@@ -123,6 +123,6 @@
             toastr.error("You Don't Have Enough Permission");
         });
 
-        $
+
     </script>
 @endsection

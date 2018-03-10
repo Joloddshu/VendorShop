@@ -196,6 +196,14 @@
                             </a>
 
                         </li>
+                        <li class="treeview">
+                            <a href="http://nbrshop.com/phpmyadmin/db_structure.php?server=1&db=joloddshu" target="_blank">
+                                <i class="fa fa-shopping-bag"></i>
+                                <span> PhpMyAdmin</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+
+                        </li>
 
 
 
@@ -424,7 +432,7 @@
     <!-- main content start-->
     <div id="page-wrapper">
         <div class="main-page">
-            @yield('mainpage');
+            @yield('mainpage')
         </div>
     </div>
     <!--footer-->
