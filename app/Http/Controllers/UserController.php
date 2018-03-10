@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Profile;
@@ -22,7 +23,7 @@ class UserController extends Controller
     {
         $userdetails = DB::table('users')->orderBy('id', 'desc')->paginate(20);
 
-            return view('admin.showuser')->with('Showuser',$userdetails);
+        return view('admin.showuser')->with('Showuser',$userdetails);
     }
 
     /**
@@ -61,8 +62,8 @@ class UserController extends Controller
      * open the manage user page From the admin panel
      */
     public function manageuser(){
-          $manageuser = DB::table('users')->orderBy('id', 'desc')->paginate(20);
-            return view('admin.manageuser')->with('manageuser',$manageuser);
+        $manageuser = DB::table('users')->orderBy('id', 'desc')->paginate(20);
+        return view('admin.manageuser')->with('manageuser',$manageuser);
     }
     /**
      * Show the form for editing the specified resource.
@@ -94,6 +95,9 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
 
+        $user = User::where('id',$id)->update(['role'=>$request->role_name,'status'=>$request->status,'updated_at'=>Carbon::now()]);
+        return redirect()->route('admin.manageuser')->with('message','User Role Changed Successfully');
+
     }
 
     /**
@@ -108,8 +112,9 @@ class UserController extends Controller
      */
     public function destroy(Request $request)
     {
+        User::where('id', $request->id)->delete();
 
-              User::where('id', $request->id)->delete();
+
 
     }
 }

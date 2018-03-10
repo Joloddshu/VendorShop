@@ -31,10 +31,10 @@
         </div>
         <div class="col-md-3 widget widget1">
             <div class="r3_counter_box">
-                <i class="pull-left fa fa-pie-chart dollar1 icon-rounded"></i>
+                <i class="pull-left fa fa-shopping-bag dollar1 icon-rounded"></i>
                 <div class="stats">
-                    <h5><strong>$450</strong></h5>
-                    <span>Expenditure</span>
+                    <h5><strong>{{\App\User::where(['role'=>'vendors'])->get()->count()}}</strong></h5>
+                    <span>Registered Vendors</span>
                 </div>
             </div>
         </div>
@@ -112,7 +112,7 @@
                 </div>
                 <ul class="info">
                     <li class="col-md-6"><b>1,997</b><p>Followers</p></li>
-    w                <li class="col-md-6"><b>389</b><p>Tweets</p></li>
+                    w                <li class="col-md-6"><b>389</b><p>Tweets</p></li>
                     <div class="clearfix"></div>
                 </ul>
             </div>
@@ -131,4 +131,4 @@
     </div>
     </div>
     </div>
-    @endsection
+@endsection

@@ -33,9 +33,9 @@ Route::group(['middleware' => ['auth']],function (){
     Route::get('/log','HomeController@loggeduser'); //test the Middleware Works or Not
     Route::get('/edit/{id}','ProfileController@getEditProfile')->name('user.editprofile'); //Retrieve the User profile Using the id
 
-/*
-* Route group for admin
-*/
+    /*
+    * Route group for admin
+    */
     Route::group(['middleware' => ['auth','admin']],function (){
 
         Route::get('/admin','adminController@index')->name('admin.index'); // show the admin main page
@@ -43,6 +43,7 @@ Route::group(['middleware' => ['auth']],function (){
         Route::get('/manageuser','UserController@manageuser')->name('admin.manageuser');//show the admin manage user page
         Route::post('delete','UserController@destroy')->name('admin.delete'); //open the delete modal
         Route::get('edit/user/{id}','UserController@edit')->name('admin.edit.get'); //trying to get the user details and admin can modify them
+        Route::post('/edit/user/{id}','UserController@update')->name('admin.update.user_role'); //change the user role using the post information
 
     });
 
@@ -51,6 +52,6 @@ Route::group(['middleware' => ['auth']],function (){
      */
     Route::group(['middleware' => ['auth','vendors']],function (){
 
-       Route::get('/vendors','vendorController@index')->name('vendors.index');
+        Route::get('/vendors','vendorController@index')->name('vendors.index');
     });
 });

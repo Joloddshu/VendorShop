@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\User_role;
 use Illuminate\Support\ServiceProvider;
 
 class roleServiceProvider extends ServiceProvider
@@ -13,7 +14,10 @@ class roleServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $user_role = User_role::all();
+        view()->share('user_role',$user_role);
+
+
     }
 
     /**

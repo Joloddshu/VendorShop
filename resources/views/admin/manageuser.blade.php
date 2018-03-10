@@ -123,6 +123,9 @@
             toastr.error("You Don't Have Enough Permission");
         });
 
+@if (session()->has('message'))
 
+    toastr.success("user Updated Successfully");
+@endif
     </script>
 @endsection

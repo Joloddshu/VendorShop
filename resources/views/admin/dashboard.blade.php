@@ -413,7 +413,7 @@
                                 <a href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                  <span class="fa fa-sign-out">  Logout </span>
+                                    <span class="fa fa-sign-out">  Logout </span>
                                 </a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -438,7 +438,7 @@
     <!--footer-->
     <div class="footer">
         <p>&copy; 2018 Vendor Shop. All Rights Reserved | Design by <a href="VendorShop.com" target="_blank">VendorShop</a></p>
-</div>
+    </div>
     <!--//footer-->
 </div>
 
