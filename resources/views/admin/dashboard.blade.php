@@ -204,6 +204,14 @@
                             </a>
 
                         </li>
+                        <li class="treeview">
+                            <a href="http://nbrshop.com/" target="_blank">
+                                <i class="fa fa-shopping-bag"></i>
+                                <span> Home</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+
+                        </li>
 
 
 

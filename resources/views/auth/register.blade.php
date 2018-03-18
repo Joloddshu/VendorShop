@@ -61,9 +61,9 @@
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-
+                                <small id="emailHelp" class="form-text text-muted"></small>
                                 @if ($errors->has('email'))
-                                    <span class="help-block">
+                                    <span id="checkmail" class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                                 @endif
@@ -145,8 +145,22 @@
                     $('#ConfirmPasswordError').removeClass('hidden_error');
                 }
             });
+//Email Checking Ajax Call
+            $("#email").blur(function(e){
+                var _token = $("input[name='_token']").val();
+                var email = $('#email').val();
+                $.ajax({
+                    url: "/checkemail",
+                    type:'POST',
+                    data: {_token:_token, email:email},
+                    success: function(data) {
+                        $("#emailHelp").html(data);
+                    }
+
+                });
 
 
+            });
         });
     </script>
     @endsection

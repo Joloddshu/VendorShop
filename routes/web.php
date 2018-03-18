@@ -15,15 +15,15 @@ Route::get('/', function () {
     return view('home.index');
 })->name('home.index');
 
-
-
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/verifyEmailFirst','Auth\RegisterController@verifyEmailFirst')->name('verifyEmailFirst');
 Route::get('/verify/{email}/{verifyToken}','Auth\RegisterController@sendEmailDone')->name('sendEmailDone');
+Route::post('/checkemail','Auth\RegisterController@checkemail')->name('Register.checkemail');  //laravel ajax call to check if the Email available or not
 Route::get('/search','SearchController@search');
+
+
 
 /*
  * check user have session or not

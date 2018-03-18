@@ -6,6 +6,7 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
@@ -57,7 +58,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'firstname' => 'required|string|max:255',
             'lastname' => 'required|string|max:255',
-            'username' => 'required|string|max:255|unique:users',
+            'username' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
             'phonenumber' => 'required|string|min:6|max:11',
@@ -91,15 +92,32 @@ class RegisterController extends Controller
         return $user;
     }
 
+
+    /**
+     * Send Email to the user
+     *
+     * 
+     * 
+     */
+
     public function sendEmail($thisUser)
     {
         Mail::to($thisUser['email'])->send(new verifyEmail($thisUser));
     }
 
+
+
     public function verifyEmailFirst()
     {
         return view('email.verifyEmailFirst');
     }
+
+ /**
+     * Create a new user instance after a valid registration.
+     *
+     * then send mail to the user using the function
+     * 
+     */
 
     public function sendEmailDone($email, $verifyToken)
     {
@@ -110,6 +128,25 @@ class RegisterController extends Controller
 
         } else {
             return redirect()->route('login')->with('status', 'User Token Expired Or You Already Confirm Your Registration');
+        }
+    }
+
+
+     /**
+     * Create a new user instance after a valid registration.
+     *
+     * Check the email is available or not when some one fill the email field in the register
+     * 
+     */
+
+    public  function  checkemail(Request $request){
+        $user = DB::table('users')->where('email',$request->email)->count();
+        if($request->ajax())
+        {
+            if($user=='0'){
+                return response()->json('available');
+            }
+            return response()->json('Not available');
         }
     }
 }
