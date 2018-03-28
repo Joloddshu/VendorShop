@@ -1,0 +1,136 @@
+.leftsidebar{
+    background: #fff !important;
+    border-right: 1px solid #ddd;
+    height:88vh;
+}
+.material-icons{
+    color: rgba(0, 0, 0, 0.87);
+}
+.collapsible-header{
+    border:none;
+    border-bottom: 1px solid #efefef;
+}
+.sidebar_design{
+    padding-left: 0;
+    list-style-type: none;
+    box-shadow: none !important;
+    border: none !important;
+}
+.collapsible-header:hover{
+    background-color: #efefef !important;
+    transition: all 0.01s ease-in;
+}
+.vendor-link-text{
+    color: rgba(0, 0, 0, 0.87);
+}
+.maincontent{
+    padding: 30px;
+
+}
+.maincontentarea{
+    padding-top: 30px !important;
+}
+nav .sidenav-trigger{
+    float: right !important;
+}
+.vendor_order{
+    background: linear-gradient(45deg, #0288d1 0%, #26c6da 100%);
+    border-radius: 3px;
+    width: 24% !important;
+    margin-right: 10px;
+}
+.orders_content{
+    margin-left: auto;
+    left:auto;
+    right:auto;
+    padding: 22px 10px 0px 30px;
+    
+}
+.orders_content>p{
+    color: #fff;
+    font-weight: 500;
+}
+p.order_class_text {
+    padding: 6px;
+    font-size: 20px;
+    font-weight: 500;
+    color: #fff;
+}
+.background-round{
+    padding:3px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.18);
+    color: #fff;
+}
+.vendor_client{
+    background: linear-gradient(45deg, #FF5252 0%, #f48fb1 100%);
+    border-radius: 3px;
+    width: 24% !important;
+    margin-right: 10px;
+}
+.vendor_sales{
+    background: linear-gradient(45deg, #ff6f00 0%, #ffca28 100%);
+    border-radius: 3px;
+    width: 24% !important;
+    margin-right: 10px;
+}
+.vendor_profit{
+    background: linear-gradient(45deg, #ff6f00 0%, #ffca28 100%);
+    border-radius: 3px;
+    width: 24% !important;
+    margin-right: 10px;
+}
+.nav_icon_color{
+    color: #fff!important;
+}
+.dropdownfixposition{
+
+    top:66px !important;
+}
+.chart-left{
+    border: 1px solid #efefef !important;
+    width: 69% !important;
+    margin-right: 20px;
+}
+.latest_order{
+    width: 29% !important;
+    border: 1px solid #efefef !important;
+}
+/*Media query for Responsive Device*/
+
+
+@media screen and (max-width: 840px) {
+.vendor-link-text{
+    display: none;
+}
+    .chart-left,.latest_order{
+        width: 100% !important;
+        border: 1px solid #efefef !important;
+    }
+
+
+}
+
+@media screen and (max-width: 480px) {
+    .vendor_order,.vendor_client,.vendor_sales,.vendor_profit{
+        width: 98% !important;
+        margin-bottom: 20px;
+    }
+
+}
+@media screen and (min-width: 490px) and (max-width: 1360px){
+    .vendor_order,.vendor_client,.vendor_sales,.vendor_profit{
+        width: 47% !important;
+        margin-bottom: 20px;
+    }
+    .chart-left{
+        border: 1px solid #efefef !important;
+        width: 100% !important;
+        margin-right: 20px;
+    }
+    .latest_order{
+        width: 100% !important;
+        border: 1px solid #efefef !important;
+    }
+
+}

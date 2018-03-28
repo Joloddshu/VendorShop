@@ -224,7 +224,7 @@
     $( function() {
 
         $( "#searchitem" ).autocomplete({
-            source:"http://localhost/VendorShop/public/search"
+            source:"{{route('searchproduct')}}"
         });
     } );
 </script>

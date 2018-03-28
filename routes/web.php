@@ -21,7 +21,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/verifyEmailFirst','Auth\RegisterController@verifyEmailFirst')->name('verifyEmailFirst');
 Route::get('/verify/{email}/{verifyToken}','Auth\RegisterController@sendEmailDone')->name('sendEmailDone');
 Route::post('/checkemail','Auth\RegisterController@checkemail')->name('Register.checkemail');  //laravel ajax call to check if the Email available or not
-Route::get('/search','SearchController@search');
+Route::get('/search','SearchController@search')->name('searchproduct');
 
 
 
@@ -52,6 +52,6 @@ Route::group(['middleware' => ['auth']],function (){
      */
     Route::group(['middleware' => ['auth','vendors']],function (){
 
-        Route::get('/vendors','vendorController@index')->name('vendors.index');
+        Route::get('/vendors','vendorController@index')->name('vendors.dashboard');
     });
 });

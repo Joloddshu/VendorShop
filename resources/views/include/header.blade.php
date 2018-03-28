@@ -28,6 +28,10 @@
                         <li >
                             <a class="admin_button" href="{{route('admin.index')}}">Go To Admin Dashboard</a>
                         </li>
+                    @elseif(Auth::user()->role=="vendors")
+                            <li >
+                                <a class="btn btn-primary" href="{{route('vendors.dashboard')}}">Go To Vendor Dashboard</a>
+                            </li>
 
                     @endif
                 @endguest
