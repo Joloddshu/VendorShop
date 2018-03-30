@@ -53,5 +53,6 @@ Route::group(['middleware' => ['auth']],function (){
     Route::group(['middleware' => ['auth','vendors']],function (){
 
         Route::get('/vendors','vendorController@index')->name('vendors.dashboard');
+        Route::get('vendors/addproduct','productController@index')->name('addproduct.index');
     });
 });

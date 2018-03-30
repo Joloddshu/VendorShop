@@ -117,7 +117,7 @@ trait AuthenticatesUsers
         if(Auth::user()->hasrole()=='admin')
             return redirect()->route('admin.index');
         elseif (Auth::user()->hasrole()=='vendors')
-            return redirect()->route('vendors.index');
+            return redirect()->route('vendors.dashboard');
         else{
             return redirect('/');
         }

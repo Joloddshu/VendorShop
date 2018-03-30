@@ -121,7 +121,7 @@
                 labels: ["January", "February", "March", "April", "May", "June", "July","August","September","October","November","December"],
                 datasets: [{
                     label: "Monthly sales Report",
-                    backgroundColor: 'rgb(255, 99, 132)',
+                    backgroundColor: '#0F9ED4',
                     borderColor: 'rgb(255, 99, 132)',
                     data: [0, 10, 5, 2, 20, 30, 45,40,50,60,70,100],
 

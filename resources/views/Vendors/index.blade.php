@@ -30,18 +30,18 @@
                             <li>
                                 <a href="javascript:void(0);" class="waves-effect waves-block waves-light notification-button" data-activates="notifications-dropdown">
                                     <i class="material-icons nav_icon_color">public
-                                        <small class="notification-badge">5</small>
                                     </i>
+
                                 </a>
                             </li>
-
+                            <li><span class="badge">1</span></li>
                             <li>
                                 <!-- Dropdown Trigger -->
                                 <a class='dropdown-trigger' href='#' data-target='dropdown1'><i  class="material-icons nav_icon_color">account_circle</i></a>
 
                                 <!-- Dropdown Structure -->
                                 <ul id='dropdown1' class='dropdown-content dropdownfixposition'>
-                                    <li><a href="#!">one</a></li>
+                                    <li><a href="#">Edit Profile</a></li>
                                     <li><a href="#!">two</a></li>
                                     <li class="divider" tabindex="-1"></li>
                                     <li><a href="#!">three</a></li>
@@ -84,7 +84,7 @@
 
                     </li>
                     <li>
-                        <div class="collapsible-header"><i class="material-icons">add</i><a class="vendor-link-text" href="#"><span class="vendor-link-text">Add New Product</span></a></div>
+                        <div class="collapsible-header"><i class="material-icons">add</i><a class="vendor-link-text" href="{{route('addproduct.index')}}"><span class="vendor-link-text">Add New Product</span></a></div>
                     </li>
                     <li>
                         <div class="collapsible-header"><i class="material-icons">settings</i><a class="vendor-link-text" href="#"><span class="vendor-link-text">Manage Product</span></a></div>
@@ -114,6 +114,17 @@
             <!-- End main Content Area -->
         </div>
     </div>
+
+    <footer class="page-footer">
+
+
+        <div class="footer-copyright">
+            <div class="container">
+                © 2018 Copyright NbrShop
+                <a class="grey-text text-lighten-4 right" href="#!">Go To HomePage</a>
+            </div>
+        </div>
+    </footer>
 
 
 
