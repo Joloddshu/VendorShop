@@ -54,5 +54,7 @@ Route::group(['middleware' => ['auth']],function (){
 
         Route::get('/vendors','vendorController@index')->name('vendors.dashboard');
         Route::get('vendors/addproduct','productController@index')->name('addproduct.index');
+        Route::post('vendors/addproduct','productController@store')->name('addproduct.store');
+
     });
 });

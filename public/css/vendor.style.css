@@ -1,3 +1,10 @@
+.navigation_menu{
+    margin-right: 10%; !important;
+}
+#dropdown1{
+    width: 200px !important;
+}
+
 .leftsidebar{
     background: #fff !important;
     border-right: 1px solid #ddd;

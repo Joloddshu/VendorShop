@@ -26,7 +26,7 @@
                         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 
 
-                        <ul class="right hide-on-med-and-down">
+                        <ul class="right hide-on-med-and-down navigation_menu">
                             <li>
                                 <a href="javascript:void(0);" class="waves-effect waves-block waves-light notification-button" data-activates="notifications-dropdown">
                                     <i class="material-icons nav_icon_color">public

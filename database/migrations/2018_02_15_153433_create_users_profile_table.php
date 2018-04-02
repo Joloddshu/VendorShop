@@ -16,13 +16,13 @@ class CreateUsersProfileTable extends Migration
         Schema::create('profiles', function (Blueprint $table) {
             $table->increments('profile_id');
             $table->unsignedInteger('user_id');
-            $table->string('city');
-            $table->string('country');
-            $table->string('zipcode');
-            $table->string('streetaddress');
-            $table->string('profileimage');
-            $table->string('dateofbirth');
-            $table->string('bio');
+            $table->string('city')->default('Null');
+            $table->string('country')->default('Null');
+            $table->string('zipcode')->default('Null');
+            $table->string('streetaddress')->default('Null');
+            $table->string('profileimage')->default('Null');
+            $table->string('dateofbirth')->default('Null');
+            $table->string('bio')->default('Null');
             $table->double('balance')->default('0');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();

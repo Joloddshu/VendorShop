@@ -123,7 +123,7 @@
                     label: "Monthly sales Report",
                     backgroundColor: '#0F9ED4',
                     borderColor: 'rgb(255, 99, 132)',
-                    data: [0, 10, 5, 2, 20, 30, 45,40,50,60,70,100],
+                    data: [{{\App\User::get()->count()}}, 10000, 5, 2, 20, 30, 45,40,50,60,70,100],
 
                 }]
             },

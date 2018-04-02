@@ -14,9 +14,11 @@ class CreateProductCategoryTable extends Migration
     public function up()
     {
         Schema::create('product_categories', function (Blueprint $table) {
-            $table->increments('cid');
+            $table->increments('category_id');
+            $table->unsignedInteger('product_foreign_id');
             $table->string('category_name');
             $table->string('description');
+            $table->foreign('product_foreign_id')->references('product_id')->on('products')->onDelete('cascade');
             $table->timestamps();
         });
     }
