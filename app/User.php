@@ -37,5 +37,8 @@ class User extends Authenticatable
     public  function profile(){
         return $this->hasOne('App\Profile');
     }
+    public function checkstatus(){
+        return $this->status;
+    }
 
 }

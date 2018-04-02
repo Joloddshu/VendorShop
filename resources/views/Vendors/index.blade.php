@@ -15,8 +15,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 
-<body>
-    <!-- Vendors Top Main Menu -->
+<body >
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+    <div class="modal-content">
+        <h4>You Have Some Issues With Your Account..</h4>
+        <p>Please Confirm Your Mail Address Or Contact Us for Support</p>
+        <p>Please Provide Full Details Of your Shop</p>
+        <p>Safety is the Main Issue</p>
+        <h5>Thanks</h5>
+        <p>NRB GRoup</p>
+    </div>
+
+</div>
+
+<!-- Vendors Top Main Menu -->
 
     <div class="vendors-main-menu">
             <div class="col s12">
@@ -73,7 +86,7 @@
     <!--Left Sidebar-->
     <div class="vendor-main-area">
         <div class="row">
-            <div class="col s2 leftsidebar" >
+            <div class="col s2 leftsidebar">
                 <ul class="collapsible sidebar_design">
                     <li>
                         <div class="collapsible-header"><i class="material-icons">dashboard</i><a  class="vendor-link-text" href="{{route('vendors.dashboard')}}"><span class="vendor-link-text">Dashboard</span></a></div>
@@ -125,9 +138,6 @@
             </div>
         </div>
     </footer>
-
-
-
     <!-- Compiled and minified JavaScript -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
@@ -140,6 +150,16 @@
             $('.sidenav').sidenav();
             $('.collapsible').collapsible();
             $('.dropdown-trigger').dropdown();
+
+            //check user status and if disable left sidebar for the inactive member
+            if('{{\Illuminate\Support\Facades\Auth::user()->checkstatus()=='0'}}') {
+                $('.modal').modal({
+                    dismissible: false
+                });
+
+            //call the Modal 1 For Inactive Members
+                $('#modal1').modal('open');
+            }
         });
 
     </script>
