@@ -16,6 +16,6 @@ Member :
 
 Project Supervisor
  
- MD. AL IMRAN
- Assistant Professor	
+ MD. AL IMRAN</br>
+ Assistant Professor	</br>
  American International University-Bangladesh
