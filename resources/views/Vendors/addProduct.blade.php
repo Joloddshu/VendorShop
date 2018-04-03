@@ -10,7 +10,7 @@
             border: 2px solid #EE6E73;
             background-color: #EE6E73;
         }
-           #product_short_descrition{
+           #product_short_description{
                height:150px;
                resize: none;
                border:1px solid #efefef !important;
@@ -62,7 +62,7 @@
             </div>
         </div>
 
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
             {{csrf_field()}}
         <div class="product-add-left">
             <div class="col s7 product-field-left">
@@ -75,8 +75,9 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <textarea name="product_short_descrition" id="product_short_descrition" maxlength="300"></textarea>
-                            <label id="label_Size" for="product_short_descrition">Product Short Description</label>
+                            <textarea name="product_short_description" id="product_short_description" maxlength="300"></textarea>
+                            <label id="label_Size" for="product_short_description">Product Short Description</label>
+                            <span class="helper-text" data-error="wrong" data-success="right">Max 300 Character</span>
                         </div>
                     </div>
                     <div class="row">
@@ -88,12 +89,12 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s6">
-                        <input id="price" type="number" class="validate" min="0" name="product_price">
-                        <label for="price">Product Price</label>
+                        <input id="product_price" type="number" class="validate" min="0" name="product_price">
+                        <label for="product_price">Product Price</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="quantity" type="number" class="validate" min="0" name="product_quantity">
-                        <label for="quantity">Product Quantity</label>
+                        <input id="product_quantity" type="number" class="validate" min="0" name="product_quantity">
+                        <label for="product_quantity">Product Quantity</label>
                     </div>
                 </div>
 
@@ -106,30 +107,18 @@
                            <div class="product_categories row">
                                <h6>Product Categories</h6>
                                <div class="category_show">
-                                  <p>
-                                      <label>
-                                          <input type="checkbox" class="filled-in" name="product_categories"  />
-                                          <span>Cloth</span>
-                                      </label>
-                                  </p>
-                                   <p>
-                                       <label>
-                                           <input type="checkbox" class="filled-in"name="product_categories"  />
-                                           <span>Cloth</span>
-                                       </label>
-                                   </p>
-                                   <p>
-                                       <label>
-                                           <input type="checkbox" class="filled-in" name="product_categories" />
-                                           <span>Cloth</span>
-                                       </label>
-                                   </p>
-                                   <p>
-                                       <label>
-                                           <input type="checkbox" class="filled-in" name="product_categories" />
-                                           <span>Cloth</span>
-                                       </label>
-                                   </p>
+                                   <div class="input-field col s12">
+                                       <select name="product_categories" id="categories">
+                                           <option value="" disabled selected>Choose Category</option>
+                                            @foreach($categories as $category)
+                                               <option >
+                                                   {{$category->category_name}}
+                                               </option>
+                                                @endforeach
+                                       </select>
+
+                                   </div>
+
 
                                </div>
 
@@ -141,10 +130,10 @@
                                <div class="file-field input-field">
                                    <div class="btn">
                                        <span>Product Image</span>
-                                       <input type="file" name="product_thumbnail">
+                                       <input type="file" id="product_thumbnail" name="product_thumbnail">
                                    </div>
                                    <div class="file-path-wrapper">
-                                       <input class="file-path validate" type="text" placeholder="Upload one files"name="product_thumbnail">
+                                       <input id="product_thumbnail" class="file-path validate" type="text" placeholder="Upload one files"name="product_thumbnail">
                                    </div>
                                </div>
                            </div>
@@ -178,18 +167,64 @@
 
         </form>
     </div>
+
+
     @endsection
 
 @section('js')
     <script>
         $(document).ready(function(){
-
+            $('select').formSelect();
+//max file 5
             $('#product_gallery').blur(function(){
                 if(this.files.length>=5){
                     $('.maxsizecheck').removeClass('hidden_attr');
                     $('#product_submit').attr('disabled','disabled');
                 }
             });
+            //form validation front end
+            $('#product_submit').click(function(event){
+
+                var product_name = $('#product_name').val();
+                var product_short_description = $('#product_short_description').val();
+                var product_long_description = $('#product_long_description').val();
+                var product_price = $('#product_price').val();
+                var product_quantity = $('#product_quantity').val();
+                var product_categories = $('#product_categories').val();
+                var product_thumbnail = $('#product_thumbnail').val();
+                var product_gallery = $('#product_gallery').val();
+
+               /* if(product_name==''){
+                    event.preventDefault();
+                    M.toast({html: 'Product Name Needed'})
+                }
+                if(product_short_description==''){
+                    event.preventDefault();
+                    M.toast({html: 'Product short Description Needed'})
+                }
+                if(product_long_description==''){
+                    event.preventDefault();
+                    M.toast({html: 'Product Long Description Needed'})
+                }
+                if(product_price==''){
+                    event.preventDefault();
+                    M.toast({html: 'Product Price Needed'})
+                }
+                if(product_quantity==''){
+                    event.preventDefault();
+                    M.toast({html: 'Product Quantity Needed'})
+                }
+                if(product_categories==''){
+                    event.preventDefault();
+                    M.toast({html: 'Product Categories Must'})
+                }
+                if(product_thumbnail==''){
+                    event.preventDefault();
+                    M.toast({html: 'Need A ThumbNail image f'})
+                }
+*/
+            });
+
         });
     </script>
     @endsection

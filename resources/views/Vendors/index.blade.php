@@ -25,6 +25,11 @@
         <p>Safety is the Main Issue</p>
         <h5>Thanks</h5>
         <p>NRB GRoup</p>
+
+    </div>
+    <div class="modal-footer" style="border-top: 1px solid #efefef">
+        <a href="{{route('home.index')}}" class="waves-effect waves-green btn-flat">Go To Home</a>
+        <a href="#" class="waves-effect waves-green btn-flat">Contact Us</a>
     </div>
 
 </div>

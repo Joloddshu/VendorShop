@@ -20,10 +20,9 @@ class CreateProductsDetailsTable extends Migration
             $table->string('product_price');
             $table->string('product_quantity');
             $table->string('product_thumbnail');
-            $table->string('product_description');
-            $table->string('product_size');
-            $table->string('product_weight');
-            $table->string('product_location');
+            $table->text('product_short_description');
+            $table->text('product_long_description');
+            $table->string('Product_categories');
             $table->foreign('product_foreign_id')->references('product_id')->on('products');
             $table->timestamps();
         });
