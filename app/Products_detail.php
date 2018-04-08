@@ -13,7 +13,5 @@ class Products_detail extends Model
     public function products(){
         return $this->belongsTo('App\Products');
     }
-    public function Product_image(){
-        return $this->hasMany('Products_image');
-    }
+
 }

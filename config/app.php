@@ -178,6 +178,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\roleServiceProvider::class,
         App\Providers\CategoryServiceProvider::class,
+        App\Providers\ProductProvider::class,
 
 
     ],

@@ -139,13 +139,13 @@
                            </div>
 
                            <div class="empty_space"></div>
-
+k8
                            <div class="product_gallery">
                                <h6>Product Gallery image</h6>
                                <div class="file-field input-field">
                                    <div class="btn">
                                        <span>Product Gallery</span>
-                                       <input type="file" multiple name="product_gallery" id="product_gallery">
+                                       <input type="file"  name="product_gallery" id="product_gallery" multiple>
                                    </div>
                                    <div class="file-path-wrapper">
                                        <input class="file-path validate" type="text" placeholder="Upload one or more files" name="product_gallery" id="product_gallery">
@@ -194,7 +194,7 @@
                 var product_thumbnail = $('#product_thumbnail').val();
                 var product_gallery = $('#product_gallery').val();
 
-               /* if(product_name==''){
+                if(product_name==''){
                     event.preventDefault();
                     M.toast({html: 'Product Name Needed'})
                 }
@@ -222,9 +222,10 @@
                     event.preventDefault();
                     M.toast({html: 'Need A ThumbNail image f'})
                 }
-*/
             });
-
+        //    var quill = new Quill('#product_long_description', {
+              //  theme: 'snow'
+        //    });
         });
     </script>
     @endsection

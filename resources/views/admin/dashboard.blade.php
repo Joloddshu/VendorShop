@@ -43,6 +43,8 @@
             height: 295px;
         }
     </style>
+
+    @yield('css')
     <!--pie-chart --><!-- index page sales reviews visitors pie chart -->
     <script src="http://cdn.hireseller.com/js/pie-chart.js" type="text/javascript"></script>
     <script type="text/javascript">
@@ -145,24 +147,17 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="general.html"><i class="fa fa-angle-right"></i> Add Products</a></li>
                                 <li><a href="general.html"><i class="fa fa-angle-right"></i> Manage Products</a></li>
                                 <li><a href="general.html"><i class="fa fa-angle-right"></i> Show Products</a></li>
 
                             </ul>
                         </li>
                         <li class="treeview">
-                            <a href="#">
+                            <a href="{{route('productCategory.index')}}">
                                 <i class="fa fa-shopping-bag"></i>
-                                <span> Categories</span>
-                                <i class="fa fa-angle-left pull-right"></i>
+                                <span>Product Categories</span>
+                                <i class="fa fa-angle-right pull-right"></i>
                             </a>
-                            <ul class="treeview-menu">
-                                <li><a href="general.html"><i class="fa fa-angle-right"></i> Add Category</a></li>
-                                <li><a href="general.html"><i class="fa fa-angle-right"></i> Manage Category</a></li>
-                                <li><a href="general.html"><i class="fa fa-angle-right"></i> Show Category</a></li>
-
-                            </ul>
                         </li>
                         <li class="treeview">
                             <a href="#">

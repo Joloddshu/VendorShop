@@ -45,7 +45,7 @@
 
 
 <!--Header Bottom  -->
-<div class="container-fluid">
+<div class="container">
     <div class="row">
         <div class="left_header col-md-3">
             <a href="{{route('home.index')}}"> <img src="{{asset('images/logo.png')}}" class="img-responsive" style="height: 55px;"></a>

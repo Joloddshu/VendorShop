@@ -55,11 +55,13 @@
             <div class="col s7">
                 <div class="orders_content">
                     <i class="material-icons background-round">shopping_cart</i>
-                    <p>Sales</p>
+                    <p>Total Products</p>
                 </div>
             </div>
             <div class="col s5">
-                <p class="order_class_text">$5000</p>
+                <p class="order_class_text">
+                {{\App\Products::where('seller_id',\Illuminate\Support\Facades\Auth::user()->id)->count()}}
+                </p>
             </div>
 
         </div>

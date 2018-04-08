@@ -17,6 +17,9 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
     <link href="{{asset('css/responsive.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('/css/owl.carousel.css')}}">
+    <link rel="stylesheet" href="{{asset('/css/owl.theme.default.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <title>Vendor Shop</title>
     @yield('css')
 
@@ -54,23 +57,9 @@
                                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                                     <ul class="nav navbar-nav">
                                         <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
-                                        <li><a href="#">Computer</a></li>
-                                        <li><a href="#">Computer</a></li>
-                                        <li><a href="#">Computer</a></li>
-                                        <li><a href="#">Computer</a></li>
-                                        <li><a href="#">Computer</a></li>
-                                        <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="#">Action</a></li>
-                                                <li><a href="#">Another action</a></li>
-                                                <li><a href="#">Something else here</a></li>
-                                                <li role="separator" class="divider"></li>
-                                                <li><a href="#">Separated link</a></li>
-                                                <li role="separator" class="divider"></li>
-                                                <li><a href="#">One more separated link</a></li>
-                                            </ul>
-                                        </li>
+                                        @foreach($categories as $category)
+                                        <li><a href="{{route('Category.getProducts',$category->category_id)}}">{{$category->category_name}}</a></li>
+                                            @endforeach
                                     </ul>
 
                                 </div><!-- /.navbar-collapse -->
@@ -220,6 +209,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="{{asset('js/owl.carousel.js')}}"></script>
 <script>
     $( function() {
 

@@ -14,7 +14,10 @@ class Products extends Model
     public function user(){
         return $this->belongsTo('App\User');
     }
-    public function product_details(){
-        return $this->hasOne('App\product_detail');
+    public function products_detail(){
+        return $this->hasOne('App\products_detail');
+    }
+    public function Product_image(){
+        return $this->hasMany('App\Products_image');
     }
 }

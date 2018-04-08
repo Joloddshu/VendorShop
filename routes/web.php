@@ -22,8 +22,7 @@ Route::get('/verifyEmailFirst','Auth\RegisterController@verifyEmailFirst')->name
 Route::get('/verify/{email}/{verifyToken}','Auth\RegisterController@sendEmailDone')->name('sendEmailDone');
 Route::post('/checkemail','Auth\RegisterController@checkemail')->name('Register.checkemail');  //laravel ajax call to check if the Email available or not
 Route::get('/search','SearchController@search')->name('searchproduct');
-
-
+Route::get('/categories/{id}','productCategoryController@getProduct')->name('Category.getProducts');
 
 /*
  * check user have session or not
@@ -38,6 +37,8 @@ Route::group(['middleware' => ['auth']],function (){
     */
     Route::group(['middleware' => ['auth','admin']],function (){
 
+        //User Route Group For the Admin
+        //To handle the specific request
         Route::get('/admin','adminController@index')->name('admin.index'); // show the admin main page
         Route::get('/showuser','UserController@index')->name('admin.showuser');//show the admin show user pages
         Route::get('/manageuser','UserController@manageuser')->name('admin.manageuser');//show the admin manage user page
@@ -45,6 +46,13 @@ Route::group(['middleware' => ['auth']],function (){
         Route::get('edit/user/{id}','UserController@edit')->name('admin.edit.get'); //trying to get the user details and admin can modify them
         Route::post('/edit/user/{id}','UserController@update')->name('admin.update.user_role'); //change the user role using the post information
 
+        //Product Route Group For the Admin
+        //To handle the specific request
+
+        Route::get('products/Category','productCategoryController@index')->name('productCategory.index');//show the category page
+        Route::post('/products/category/addCategory','productCategoryController@addcategory')->name('Category.addCategory');
+        Route::post('/products/category/editCategory','productCategoryController@editCategory')->name('Category.editCategory');
+        Route::post('products/category/delete','productCategoryController@deleteCategory')->name('Category.deleteCategory');
     });
 
     /*
@@ -55,6 +63,9 @@ Route::group(['middleware' => ['auth']],function (){
         Route::get('/vendors','vendorController@index')->name('vendors.dashboard');
         Route::get('vendors/addproduct','productController@index')->name('addproduct.index');
         Route::post('vendors/addproduct','productController@store')->name('addproduct.store');
+        Route::get('/vendors/manageproducts','productController@getProductList')->name('manageProduct.getProductList');
+        Route::get('/products/edit/{id}','productController@edit')->name('editProducts.edit');
+        Route::get('/products/view/{id}','productController@show')->name('ViewProducts.show');
 
     });
 });

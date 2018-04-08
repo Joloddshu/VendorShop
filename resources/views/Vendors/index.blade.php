@@ -9,6 +9,7 @@
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
     <link rel="stylesheet" href="{{asset('css/vendor.style.css')}}">
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 
 @yield('css')
     <!--Let browser know website is optimized for mobile-->
@@ -105,7 +106,7 @@
                         <div class="collapsible-header"><i class="material-icons">add</i><a class="vendor-link-text" href="{{route('addproduct.index')}}"><span class="vendor-link-text">Add New Product</span></a></div>
                     </li>
                     <li>
-                        <div class="collapsible-header"><i class="material-icons">settings</i><a class="vendor-link-text" href="#"><span class="vendor-link-text">Manage Product</span></a></div>
+                        <div class="collapsible-header"><i class="material-icons">settings</i><a class="vendor-link-text" href="{{route('manageProduct.getProductList')}}"><span class="vendor-link-text">Manage Product</span></a></div>
                     </li>
                     <li>
                         <div class="collapsible-header"><i class="material-icons">redeem</i><a class="vendor-link-text" href="#"><span class="vendor-link-text">Order</span></a></div>
@@ -148,6 +149,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
     @yield('js')
 
     <script>

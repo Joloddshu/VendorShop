@@ -16,6 +16,7 @@ class CreateProductTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->increments('product_id');
             $table->unsignedInteger('seller_id');
+            $table->integer('status')->default('0');
             $table->foreign('seller_id')->references('id')->on('users');
           //  $table->foreign('category_id')->references('product_foreign_id')->on('product_categories');
             $table->timestamps();
