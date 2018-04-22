@@ -7,6 +7,10 @@
 @endsection
 
 @section('maincontent')
-   View Products
+            @foreach($showProduct as $products)
+            {{$products->product_name}}
+            {!!$products->product_short_description!!}
+            {!!$products->product_long_description!!}
 
+@endforeach
     @endsection

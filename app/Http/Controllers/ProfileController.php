@@ -18,7 +18,10 @@ class ProfileController extends Controller
         return view('user.editprofile')->with('user',$user);
     }
 
-
+    public function show($id){
+        $user = User::find($id);
+        return view('user.viewProfile')->with('users',$user);
+    }
     
 
 }

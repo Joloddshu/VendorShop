@@ -1,43 +1,45 @@
 <!--Header Top  -->
 
 <div class="container-fluid header-top">
-    <div class="row" >
-        <div class="col-md-8">
-            <div class="header-top-content">
-                <ul>
-                    <li>
-                        Welcome Our Online Store!</li>
-                    <li>
-                        <i class="far fa-envelope"></i> Email : nsmajm@gmail.com</li>
-                    <li>
-                        <i class="fas fa-phone"></i> Hotline : Rabby Joloddshu (Maid Of the shop)
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <ul>
+ <div class="container">
+     <div class="row" >
+         <div class="col-md-8">
+             <div class="header-top-content">
+                 <ul>
+                     <li>
+                         Welcome Our Online Store!</li>
+                     <li>
+                         <i class="far fa-envelope"></i> Email : nsmajm@gmail.com</li>
+                 </ul>
+             </div>
+         </div>
+         <div class="col-md-4">
+             <ul>
 
 
-               @guest
-                <li style="padding-right: 4px">
-                    <a class="vendor-button" href="{{route('password.request')}}">Want To Become Vendor</a>
-                </li>
-                    @else
-                    @if(Auth::user()->role=="admin")
-                        <li >
-                            <a class="admin_button" href="{{route('admin.index')}}">Go To Admin Dashboard</a>
-                        </li>
-                    @elseif(Auth::user()->role=="vendors")
-                            <li >
-                                <a class="btn btn-primary" href="{{route('vendors.dashboard')}}">Go To Vendor Dashboard</a>
-                            </li>
+                 @guest
+                 <li style="padding-right: 4px">
+                     <a class="vendor-button" href="{{route('password.request')}}">Want To Become Vendor</a>
+                 </li>
+                 <li>
 
-                    @endif
-                @endguest
-            </ul>
-        </div>
-    </div>
+                 </li>
+                 @else
+                     @if(Auth::user()->role=="admin")
+                         <li >
+                             <a class="admin_button" href="{{route('admin.index')}}">Go To Admin Dashboard</a>
+                         </li>
+                     @elseif(Auth::user()->role=="vendors")
+                         <li >
+                             <a class="btn btn-primary" href="{{route('vendors.dashboard')}}">Go To Vendor Dashboard</a>
+                         </li>
+
+                     @endif
+                     @endguest
+             </ul>
+         </div>
+     </div>
+ </div>
 </div>
 
 
@@ -45,8 +47,9 @@
 
 
 <!--Header Bottom  -->
+<div class="container-fluid">
 <div class="container">
-    <div class="row">
+    <div class="row" >
         <div class="left_header col-md-3">
             <a href="{{route('home.index')}}"> <img src="{{asset('images/logo.png')}}" class="img-responsive" style="height: 55px;"></a>
         </div>
@@ -79,12 +82,12 @@
                         <img src="{{asset('/images/loginbutton.png')}}" alt="">
 
                         <div class="dropdown account_button">
-                            <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                                 {{Auth::user()->firstname}}
                                 <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu account_dropdown" aria-labelledby="dropdownMenu1">
-                                <li><a href="{{route('user.editprofile',Auth::user()->id)}}"><i class="fa fa-cog"></i>   edit Profile</a></li>
+                                <li><a href="{{route('user.show',Auth::user()->id)}}"><i class="fa fa-eye"></i>   View Profile</a></li>
                                 <li><a href="#"><i class="fa fa-user"></i>   Update Profile</a></li>
                                 <li><a href="#"><i class="fas fa-history"></i>   Order History</a></li>
                                 <li>
@@ -107,7 +110,7 @@
 
                     <li class="header_right_last" style="float: left">
                         <div class="cart_area">
-                            <a class="top_login" href="#"><img src="{{asset('/images/cart.png')}}" alt=""></a>
+                            <a class="top_login" href="#"><i class="fa fa-shopping-bag"></i></a>
                             <div class="sub_cart">
                                 <span class="cart_text">Your Cart</span>
                                 <span class="cart_price">$0.00</span>
@@ -118,4 +121,5 @@
         </div>
 
     </div>
+</div>
 </div>

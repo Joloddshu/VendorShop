@@ -179,6 +179,7 @@ return [
         App\Providers\roleServiceProvider::class,
         App\Providers\CategoryServiceProvider::class,
         App\Providers\ProductProvider::class,
+        App\Providers\featuredProductProvider::class,
 
 
     ],

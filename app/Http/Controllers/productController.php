@@ -51,7 +51,7 @@ class productController extends Controller
         //grab the thumnail file from the input field and store it in the /public/products folder
         if ($request->hasFile('product_thumbnail')) {
             $file = $request->file('product_thumbnail');
-            $filename = Auth::user()->id . '-' . rand(1000, 9999) . '.' . $file->getClientOriginalExtension();;
+            $filename = Auth::user()->id . '-' . rand(1000, 9999) . '.' . $file->getClientOriginalExtension();
             $file->move('uploads/products/thumbnails', $filename);
         }
             $product_details = Products_detail::create([
@@ -88,8 +88,12 @@ class productController extends Controller
      */
     public function show($id)
     {
-        $viewProducts = DB::table('products_details')->where('product_details_id',$id)->first();
-        return view('vendors.viewProduct')->with('viewProducts',$viewProducts);
+        $showProducts = DB::table('products_details')
+            ->join('products', 'products_details.product_foreign_id', '=', 'products.product_id')
+            ->select('products_details.*', 'products_details.product_foreign_id', 'products.product_id')
+            ->where('product_id','=',$id)
+            ->get();
+        return view('vendors.viewProduct')->with('showProduct',$showProducts);
     }
 
     /**

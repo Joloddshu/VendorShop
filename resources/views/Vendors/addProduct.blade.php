@@ -10,19 +10,11 @@
             border: 2px solid #EE6E73;
             background-color: #EE6E73;
         }
-           #product_short_description{
-               height:150px;
-               resize: none;
-               border:1px solid #efefef !important;
-           }
+
            #label_Size{
                font-size: 20px;
            }
-            #product_long_description{
-                min-height: 200px;
-                border:1px solid #efefef !important;
-                resize: none;
-            }
+
             .product_extra{
                 margin-left: 20%;
                 border:1px solid #efefef;
@@ -49,7 +41,22 @@
                display: none !important;
 
            }
+           #product_short_description{
+               resize:none;
+               overflow:auto;
+           }
        </style>
+       <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=odwwdcg71lz8xl030fcjuot4w2yk16dunkpvb1lz613tcz8r"></script>
+
+       <script>
+           tinymce.init({
+               selector: '#product_short_description,#product_long_description',
+               menubar:    false,
+               resize :false,
+               height:400
+
+           });
+       </script>
 @endsection
 
 @section('maincontent')
@@ -68,42 +75,48 @@
             <div class="col s7 product-field-left">
                 <div class="row">
                     <div class="row">
+                        <h6>Product Name</h6>
+                    </div>
+                    <div class="row">
                         <div class="input-field col s12">
                             <input id="product_name" type="text" class="validate" name="product_name">
-                            <label id="label_Size" for="product_name">Product Name</label>
                         </div>
+                    </div>
+                    <div class="row">
+                        <h6>Product Short Description</h6>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
                             <textarea name="product_short_description" id="product_short_description" maxlength="300"></textarea>
-                            <label id="label_Size" for="product_short_description">Product Short Description</label>
-                            <span class="helper-text" data-error="wrong" data-success="right">Max 300 Character</span>
                         </div>
+                    </div>
+                    <div class="row">
+                        <h6>Product Long Description</h6>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
                             <textarea name="product_long_description" id="product_long_description" ></textarea>
-                            <label id="label_Size" for="product_long_description">Product Long Description</label>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="input-field col s6">
-                        <input id="product_price" type="number" class="validate" min="0" name="product_price">
-                        <label for="product_price">Product Price</label>
-                    </div>
-                    <div class="input-field col s6">
-                        <input id="product_quantity" type="number" class="validate" min="0" name="product_quantity">
-                        <label for="product_quantity">Product Quantity</label>
-                    </div>
-                </div>
+
+
 
             </div>
         </div>
         <div class="product-add-right">
                 <div class="col s5">
                        <div class="product_extra">
-
+                           <div class="row">
+                               <div class="input-field col s12">
+                                   <h6>Product Price</h6>
+                                   <input id="product_price" type="number" class="validate" min="0" name="product_price">
+                               </div>
+                               <div class="input-field col s12">
+                                   <h6>Product Quantity</h6>
+                                   <input id="product_quantity" type="number" class="validate" min="0" name="product_quantity">
+                               </div>
+                           </div>
                            <div class="product_categories row">
                                <h6>Product Categories</h6>
                                <div class="category_show">
@@ -198,17 +211,11 @@ k8
                     event.preventDefault();
                     M.toast({html: 'Product Name Needed'})
                 }
-                if(product_short_description==''){
-                    event.preventDefault();
-                    M.toast({html: 'Product short Description Needed'})
-                }
-                if(product_long_description==''){
-                    event.preventDefault();
-                    M.toast({html: 'Product Long Description Needed'})
-                }
+
                 if(product_price==''){
                     event.preventDefault();
                     M.toast({html: 'Product Price Needed'})
+
                 }
                 if(product_quantity==''){
                     event.preventDefault();

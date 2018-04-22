@@ -41,7 +41,7 @@
                             <td>
                                 <!-- Button trigger modal -->
                                 <button type="button" data-categoryId="{{$category->category_id}}"
-                                        data-content="{{$category->category_name}}" class="btn btn-primary"
+                                        data-content="{{$category->category_name}}" data-icon="{{$category->category_icon}}" class="btn btn-primary"
                                         data-toggle="modal" data-target="#editmodal">
                                     <i class="fa fa-edit"></i>
                                 </button>
@@ -94,6 +94,10 @@
                             <label for="categoryName">Category Name</label>
                             <input type="text" class="form-control" name="category_name" id="categoryName" value="" aria-describedby="emailHelp">
                         </div>
+                    <div class="form-group">
+                        <label for="categoryName">Category Icon</label>
+                        <input type="text" class="form-control" name="category_icon" id="categoryIcon" value="">
+                    </div>
 
                 </div>
                 <div class="modal-footer">
@@ -145,8 +149,12 @@
 
                         <div class="form-group">
                             <label for="category">Category Name</label>
-                            <input type="text" class="form-control" name="categoryName" id="category" placeholder="Enter Category Name">
+                            <input type="text" class="form-control" name="categoryName" id="category" required>
                         </div>
+                    <div class="form-group">
+                        <label for="category">Category Icon</label>
+                        <input type="text" class="form-control" name="categoryIcon" id="categoryIcon" required>
+                    </div>
 
                 </div>
                 <div class="modal-footer">
@@ -167,10 +175,12 @@
             var button = $(event.relatedTarget);
             var categoryid = button.data('categoryid');
             var catName = button.data('content');
+            var icon = button.data('icon');
             //console.log(catName);
             var modal = $(this);
             modal.find('.modal-body #categoryId').val(categoryid);
             modal.find('.modal-body #categoryName').val(catName);
+            modal.find('.modal-body #categoryIcon').val(icon);
 
         });
         //delete Modal

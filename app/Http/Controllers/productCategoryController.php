@@ -25,7 +25,8 @@ class productCategoryController extends Controller
      */
     public function addCategory(CategoryRequest $request){
         product_category::create([
-            'category_name' =>$request->categoryName
+            'category_name' =>$request->categoryName,
+            'category_icon' =>$request->categoryIcon
         ]);
         return back();
     }
@@ -35,7 +36,7 @@ class productCategoryController extends Controller
  * using bootstrap remote data pass from button to modal
  * update the filed
  */
-    public function editCategory (CategoryRequest $request){
+    public function editCategory (Request $request){
         $category = product_category::findOrFail($request->category_id);
         $category->update($request->all());
         return back();

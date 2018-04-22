@@ -23,6 +23,8 @@ Route::get('/verify/{email}/{verifyToken}','Auth\RegisterController@sendEmailDon
 Route::post('/checkemail','Auth\RegisterController@checkemail')->name('Register.checkemail');  //laravel ajax call to check if the Email available or not
 Route::get('/search','SearchController@search')->name('searchproduct');
 Route::get('/categories/{id}','productCategoryController@getProduct')->name('Category.getProducts');
+Route::get('/cart/add/{id}','cartController@addToCart')->name('cart.add');
+Route::get('/products/view  /{id}','cartController@addToCart')->name('product.view');
 
 /*
  * check user have session or not
@@ -30,6 +32,7 @@ Route::get('/categories/{id}','productCategoryController@getProduct')->name('Cat
 Route::group(['middleware' => ['auth']],function (){
 
     Route::get('/log','HomeController@loggeduser'); //test the Middleware Works or Not
+    Route::get('/user/{id}','ProfileController@show')->name('user.show'); //Retrieve the User profile Using the id
     Route::get('/edit/{id}','ProfileController@getEditProfile')->name('user.editprofile'); //Retrieve the User profile Using the id
 
     /*

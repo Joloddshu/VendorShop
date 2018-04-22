@@ -134,8 +134,7 @@
                             <ul class="treeview-menu">
                                 <li><a href="{{route('admin.showuser')}}"><i class="fa fa-angle-right"></i> Show All user</a></li>
                                 <li><a href="{{route('admin.manageuser')}}"><i class="fa fa-angle-right"></i> Manage User</a></li>
-                                <li><a href="media.html"><i class="fa fa-angle-right"></i> Change User Role</a></li>
-                                <li><a href="media.html"><i class="fa fa-angle-right"></i>Add User</a></li>
+                                <li><a href="#"><i class="fa fa-angle-right"></i>Add Vendorss</a></li>
                             </ul>
                         </li>
 
