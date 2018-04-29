@@ -14,8 +14,8 @@ class ProfileController extends Controller
 {
    //get the profile details
     public function getEditProfile($id){
-        $user = DB::table('users')->where('id',$id)->first();
-        return view('user.editprofile')->with('user',$user);
+        $user = User::find($id);
+        return view('user.editprofile')->with('users',$user);
     }
 
     public function show($id){

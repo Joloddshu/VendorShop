@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class user_roles extends Model
 {
-    protected $primaryKey='id';
+    protected $primaryKey='role_id';
 }

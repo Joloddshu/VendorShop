@@ -49,6 +49,6 @@ class LoginController extends Controller
          * return Username,password and status
          */
 
-        return ['email'=>$request{$this->username()},'password'=>$request->password,'status'=>'1'];
+        return ['email'=>$request{$this->username()},'password'=>$request->password];
     }
 }

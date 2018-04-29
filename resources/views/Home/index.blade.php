@@ -73,7 +73,7 @@
           @foreach($productDetails as $product)
               <div class="item">
                   <div class="main">
-                      <img class="img-reponsive" src="/uploads/products/thumbnails/{{$product->product_thumbnail}}" alt="">
+                      <img class="img-responsive" src="/uploads/products/thumbnails/{{$product->product_thumbnail}}" alt="">
                       <div class="overlay">
                           <div class="text">
                               <form method="post">

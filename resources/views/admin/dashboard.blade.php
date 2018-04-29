@@ -42,6 +42,8 @@
             width: 100%;
             height: 295px;
         }
+
+
     </style>
 
     @yield('css')
@@ -146,7 +148,7 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="general.html"><i class="fa fa-angle-right"></i> Manage Products</a></li>
+                                <li><a href="{{route('admin.manageProduct')}}"><i class="fa fa-angle-right"></i> Manage Products</a></li>
                                 <li><a href="general.html"><i class="fa fa-angle-right"></i> Show Products</a></li>
 
                             </ul>

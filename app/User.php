@@ -41,7 +41,7 @@ class User extends Authenticatable
         return $this->hasMany('App\Products');
     }
     public function checkstatus(){
-        return $this->status;
+        return $this->userStatus;
     }
 
 }

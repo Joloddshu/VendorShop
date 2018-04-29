@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('home.index');
+    return view('Home.index');
 })->name('home.index');
 
 Auth::routes();
@@ -25,14 +25,14 @@ Route::get('/search','SearchController@search')->name('searchproduct');
 Route::get('/categories/{id}','productCategoryController@getProduct')->name('Category.getProducts');
 Route::get('/cart/add/{id}','cartController@addToCart')->name('cart.add');
 Route::get('/products/view  /{id}','cartController@addToCart')->name('product.view');
-
+Route::get('/user/{id}','ProfileController@show')->name('user.show'); //Retrieve the User profile Using the id
 /*
  * check user have session or not
 */
 Route::group(['middleware' => ['auth']],function (){
 
     Route::get('/log','HomeController@loggeduser'); //test the Middleware Works or Not
-    Route::get('/user/{id}','ProfileController@show')->name('user.show'); //Retrieve the User profile Using the id
+
     Route::get('/edit/{id}','ProfileController@getEditProfile')->name('user.editprofile'); //Retrieve the User profile Using the id
 
     /*
@@ -48,7 +48,8 @@ Route::group(['middleware' => ['auth']],function (){
         Route::post('delete','UserController@destroy')->name('admin.delete'); //open the delete modal
         Route::get('edit/user/{id}','UserController@edit')->name('admin.edit.get'); //trying to get the user details and admin can modify them
         Route::post('/edit/user/{id}','UserController@update')->name('admin.update.user_role'); //change the user role using the post information
-
+        Route::get('/manage/product','admin\product\productController@index')->name('admin.manageProduct');
+        Route::post('/product/delete','admin\product\productController@deleteProduct')->name('admin.deleteProduct'); // show the admin main page
         //Product Route Group For the Admin
         //To handle the specific request
 
@@ -56,6 +57,8 @@ Route::group(['middleware' => ['auth']],function (){
         Route::post('/products/category/addCategory','productCategoryController@addcategory')->name('Category.addCategory');
         Route::post('/products/category/editCategory','productCategoryController@editCategory')->name('Category.editCategory');
         Route::post('products/category/delete','productCategoryController@deleteCategory')->name('Category.deleteCategory');
+
+
     });
 
     /*

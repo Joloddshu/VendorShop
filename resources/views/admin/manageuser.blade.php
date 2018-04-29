@@ -35,7 +35,7 @@
                                     @endif
                                 </td>
                                 <td>
-                                    @if($user->status=='1')
+                                    @if($user->userStatus=='1')
                                         Activated
                                     @else
                                         Not Activate
