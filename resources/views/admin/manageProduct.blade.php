@@ -41,12 +41,30 @@
     @endsection
 
 @section('mainpage')
+    @if(Session()->has('blockMessage'))
+    <div class="alert alert-danger" role="alert">
+        "Product Blocked"
+    </div>
+    @endif
+
+    @if(Session()->has('approveMessage'))
+    <div class="alert alert-success" role="alert">
+        "Product Approved"
+    </div>
+    @endif
     <div id="page-wrapper" style="margin: 0 0 0 0em;">
         <div class="main-page">
             <div class="tables">
 
                 <div class="panel-body widget-shadow">
-                    <h4>Manage Products</h4>
+                    <h4 class="pull-left">Manage Products</h4>
+                    <div class="pull-right">
+                        <select class="form-control form-control-lg" name="SortProduct" id="chooseOptions">
+                            <option value="showAll" id="showAll" >Show All</option>
+                            <option  value="approved" id="approved">Approved</option>
+                            <option value="notApproved" id="notApproved">Not Approved</option>
+                        </select>
+                    </div>
                     <table class="table table-bordered">
                         <thead>
                         <tr>
@@ -66,7 +84,7 @@
                         @foreach($productsList as $products)
                             <tr>
 
-                                <td>{{$products->product_name}}</td>
+                                <td><a target="_blank"  href="{{route('productController.singleProducts',$products->product_id)}}" >{{$products->product_name}}</a></td>
                                 <td>{{$products->product_price}}</td>
                                 <td>{{$products->product_quantity}}</td>
                                 <td style="text-align: center">{{$products->firstname}}</td>
@@ -91,9 +109,21 @@
                                     <button type="button" class="modalbtn" data-toggle="modal" data-target="#deleteModal" data-content="{{$products->product_id}}">
                                         <i class="fa fa-trash actionbutton"></i>
                                     </button>
-                                    <button type="button" class="modalbtn" data-toggle="modal" data-target="#approveModal">
-                                        <i class="fa fa-check actionbutton"></i>
-                                    </button>
+                                    @if($products->status=='0')
+                                        <button type="button" class="modalbtn" data-toggle="modal" data-target="#approveModal"
+                                                data-content="{{$products->product_id}}"
+                                        >
+                                            <i class="fa fa-check actionbutton"></i>
+                                        </button>
+
+                                        @else
+                                        <button type="button" class="modalbtn" data-toggle="modal" data-target="#blockModal"
+                                                data-content="{{$products->product_id}}"
+                                        >
+                                            <i class="fa fa-ban actionbutton"></i>
+                                        </button>
+
+                                        @endif
                                 </td>
 
                             </tr>
@@ -165,22 +195,52 @@
         </div>
     </div>
     <!-- Approve Modal -->
-    <div class="modal fade" id="approveModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal fade" id="approveModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title text-center" id="myModalLabel">Delete Products</h4>
                 </div>
-                <div class="modal-body">
-                    ...
+                <form action="{{route('admin.approve')}}" method="post">
+                    {{csrf_field()}}
+                    <div class="modal-body">
+                        <p class="text-center">
+                            Are you sure you want to delete this?
+                        </p>
+                        <input type="text" name="approve_id" id="approveProduct" value="">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-info" data-dismiss="modal">No, Cancel</button>
+                        <input type="submit" value="Approve" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Block Modal -->
+    <div class="modal fade" id="blockModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title text-center" id="myModalLabel">Delete Products</h4>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
+                <form action="{{route('admin.block')}}" method="post">
+                    {{csrf_field()}}
+                    <div class="modal-body">
+                        <p class="text-center">
+                            Are you sure you want to Block this products?
+                        </p>
+                        <input type="hidden" name="blockId" id="blockProducts" value="">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" data-dismiss="modal">No, Cancel</button>
+                        <input type="submit" value="Block" class="btn btn-warning" />
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -223,16 +283,22 @@
             //Approve modal
             $('#approveModal').on('show.bs.modal', function (event) {
                 var button = $(event.relatedTarget);
-                var categoryid = button.data('categoryid');
-                var catName = button.data('content');
-                var icon = button.data('icon');
-                //console.log(catName);
+                var productId = button.data('content');
                 var modal = $(this);
-                modal.find('.modal-body #categoryId').val(categoryid);
-                modal.find('.modal-body #categoryName').val(catName);
-                modal.find('.modal-body #categoryIcon').val(icon);
+                modal.find('.modal-body #approveProduct').val(productId);
+
 
             });
+
+            //block modal
+            $('#blockModal').on('show.bs.modal', function (event) {
+                var button = $(event.relatedTarget);
+                var productId = button.data('content');
+                console.log(productId);
+                var modal = $(this);
+                modal.find('.modal-body #blockProducts').val(productId);
+            });
+
         });
     </script>
     @endsection

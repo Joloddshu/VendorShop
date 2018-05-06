@@ -115,6 +115,10 @@
                                 <span class="cart_text">Your Cart</span>
                                 <span class="cart_price">$0.00</span>
                             </div>
+                            <div class="product-cart">
+
+                            </div>
+
                         </div>
                     </li>
             </ul>

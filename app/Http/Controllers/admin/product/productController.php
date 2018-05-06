@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\admin\product;
 
+use App\Products;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -26,75 +27,25 @@ class productController extends Controller
        return view('admin.manageProduct')->with('productsList',$productList);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
     public function deleteProduct(Request $request){
             $products_details = DB::table('products_details')->where('product_foreign_id','=',$request->product_id)->delete();
             $products = DB::table('products')->where('product_id','=',$request->product_id)->delete();
             return back();
 
+    }
+
+    public function approve(Request $request){
+            $product = Products::find($request->approve_id);
+            $product->status='1';
+            $product->save();
+            return back()->with('approveMessage',"Product Approved");
+    }
+
+    public  function  block(Request $request){
+        $product = Products::find($request->blockId);
+        $product->status='0';
+        $product->save();
+        return back()->with('blockMessage',"Product Blocked");
     }
 }

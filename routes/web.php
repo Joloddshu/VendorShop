@@ -26,6 +26,7 @@ Route::get('/categories/{id}','productCategoryController@getProduct')->name('Cat
 Route::get('/cart/add/{id}','cartController@addToCart')->name('cart.add');
 Route::get('/products/view  /{id}','cartController@addToCart')->name('product.view');
 Route::get('/user/{id}','ProfileController@show')->name('user.show'); //Retrieve the User profile Using the id
+Route::get('/product/{id}','productController@singleProducts')->name('productController.singleProducts');
 /*
  * check user have session or not
 */
@@ -49,7 +50,9 @@ Route::group(['middleware' => ['auth']],function (){
         Route::get('edit/user/{id}','UserController@edit')->name('admin.edit.get'); //trying to get the user details and admin can modify them
         Route::post('/edit/user/{id}','UserController@update')->name('admin.update.user_role'); //change the user role using the post information
         Route::get('/manage/product','admin\product\productController@index')->name('admin.manageProduct');
-        Route::post('/product/delete','admin\product\productController@deleteProduct')->name('admin.deleteProduct'); // show the admin main page
+        Route::post('/product/delete','admin\product\productController@deleteProduct')->name('admin.deleteProduct');
+        Route::post('/product/approve','admin\product\productController@approve')->name('admin.approve');
+        Route::post('/product/block','admin\product\productController@block')->name('admin.block');
         //Product Route Group For the Admin
         //To handle the specific request
 

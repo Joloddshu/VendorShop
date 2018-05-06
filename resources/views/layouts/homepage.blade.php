@@ -55,7 +55,7 @@
                                 <!-- Collect the nav links, forms, and other content for toggling -->
                                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                                     <ul class="nav navbar-nav">
-                                        <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+                                        <li class="active"><a href="{{route('home.index')}}">Home <span class="sr-only">(current)</span></a></li>
                                         @foreach($categories as $category)
                                         <li><a href="{{route('Category.getProducts',$category->category_id)}}">{{$category->category_name}}</a></li>
                                             @endforeach
@@ -208,14 +208,49 @@
 
 
 
-<div class="footer" style="padding-top: 200px"></div>
+<div class="footer">
+    <div class="container-fluid footer-row">
+        <div class="subscriber-footer">
+            <div class="row subscribe-content">
+                <div class="col-md-6">
+                    <form action="#">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="subscribeField" placeholder="Subscribe For News">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="submit" class="btn btn-primary" value="Subscribe Now" id="subscibeSubmit">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-6">
+                        <div class="social-icon">
+                            <ul class="social-list" style="display:inline-flex;">
+                                <li><a href="#"><i class="fa fa-facebook iconpackFooter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-youtube iconpackFooter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter iconpackFooter"></i></a></li>
+                            </ul>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>All Right Reserved 	&copy;<a class="copyright" href="{{route('home.index')}}">NRB Shop</a></p>
+    </div>
+</div>
 
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-
+<script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>

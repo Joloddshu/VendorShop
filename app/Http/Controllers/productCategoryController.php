@@ -59,7 +59,7 @@ class productCategoryController extends Controller
         {
             $getCategoryId = product_category::find($id);
             $getProductList = Products_detail::where('Product_categories','=',$getCategoryId->category_name)->get();
-            return response()->json($getProductList);
+            return view('include.categoryWizeProducts')->with('products',$getProductList);
         }
 
 

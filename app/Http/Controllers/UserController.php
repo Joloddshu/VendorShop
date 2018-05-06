@@ -95,7 +95,7 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
 
-        $user = User::where('id',$id)->update(['role'=>$request->role_name,'status'=>$request->status,'updated_at'=>Carbon::now()]);
+        $user = User::where('id',$id)->update(['role'=>$request->role_name,'userStatus'=>$request->status,'updated_at'=>Carbon::now()]);
         return redirect()->route('admin.manageuser')->with('message','User Role Changed Successfully');
 
     }

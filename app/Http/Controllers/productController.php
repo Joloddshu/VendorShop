@@ -137,4 +137,12 @@ class productController extends Controller
     {
         //
     }
+
+
+    public function singleProducts($id){
+           $product = DB::table('products_details')->where('product_foreign_id','=',$id)->first();
+          // return response()->json($product);
+        return view('include.singleProducts')->with('product',$product);
+
+    }
 }

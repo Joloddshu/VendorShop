@@ -11,12 +11,12 @@
                                     <div class="text">
                                         <form method="post">
                                             {{csrf_field()}}
-                                            <input type="hidden" name="product_id" value="{{$product->product_id}}" class="product_cart_id">
-                                            <input type="hidden" name="product_name" value="{{$product->product_name}}">
+                                            <input type="hidden" name="product_id" value="{{$featuredProduct->product_id}}" class="product_cart_id">
+                                            <input type="hidden" name="product_name" value="{{$featuredProduct->product_name}}">
                                             <input type="hidden" name="product_qty" value="1">
-                                            <input type="hidden" name="product_price" value="{{$product->product_price}}">
+                                            <input type="hidden" name="product_price" value="{{$featuredProduct->product_price}}">
                                             <button type="submit" class="btn btn-primary"><i class="fa fa-shopping-cart"></i></button>
-                                            <button type="submit" class="btn btn-primary"><i class="fa fa-external-link"></i></button>
+                                            <a  href="{{route('productController.singleProducts',$featuredProduct->product_id)}}" class="btn btn-primary"><i class="fa fa-external-link"></i></a>
                                             <button type="submit" class="btn btn-primary"><i class="fa fa-eye" aria-hidden="true"></i></button>
                                         </form>
                                     </div>

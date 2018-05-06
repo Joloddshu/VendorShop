@@ -48,6 +48,7 @@
        </style>
        <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=odwwdcg71lz8xl030fcjuot4w2yk16dunkpvb1lz613tcz8r"></script>
 
+
        <script>
            tinymce.init({
                selector: '#product_short_description,#product_long_description',

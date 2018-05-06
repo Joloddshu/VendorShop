@@ -40,7 +40,7 @@ ul{
     background: #fff;
     font-weight: 600;
 }
-.vendor-button a:focus, a:hover {
+.vendor-button a:focus,.vendor-button a:hover {
     color: #000;
     background: #fff;
     text-decoration: none !important;
@@ -285,6 +285,7 @@ ul{
     border: 1px solid #efefef;
     max-width: 24%;
     margin-right: 12px;
+    margin-bottom: 20px;
     position: relative;
 }
 .product-action{
@@ -378,10 +379,47 @@ i.fa.fa-shopping-bag {
     border-right: 1px solid #efefef;
     border-bottom: 1px solid #efefef;
 }
+.footer-row{
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+}
+.subscriber-footer{
+    height:200px;
 
+    background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),url("http://7uptheme.com/wordpress/iustore/wp-content/uploads/2018/03/slide2.jpg");
+    background-position: center;
+    background-repeat:no-repeat;
 
-
-
+}
+.singleimage{
+    border:1px solid #efefef;
+}
+.subscribe-content {
+    vertical-align: middle;
+    position: relative;
+    top: 40%;
+    left: 15%;
+}
+#subscribeField {
+    padding: 24px;
+}
+#subscibeSubmit {
+    padding: 14px;
+    position: relative;
+    right: 16%;
+}
+.social-list>li>a {
+    padding: 20px;
+}
+.iconpackFooter {
+    background: #fff;
+    font-size: 21px;
+    padding: 23px;
+    border-radius: 36px;
+}
+.iconpackFooter:hover{
+    color: #000;
+}
 
 /*-- //banner-top --*/
 .carousel-caption {
@@ -389,6 +427,22 @@ i.fa.fa-shopping-bag {
     min-height:600px!important;
     padding-top:10em;
 }
+.footer-bottom{
+   margin-top: 20px;
+    margin-bottom: 20px;
+    background: #efefef;
+    padding: 20px;
+}
+.footer-bottom>p{
+    text-align: center;
+    color: #000;
+}
+.copyright{
+    color: #337ab7;
+    font-weight:600;
+}
+
+
 /*-- banner --*/
 .carousel .item{
     background:linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(https://images8.alphacoders.com/577/thumb-1920-577341.jpg) no-repeat;
