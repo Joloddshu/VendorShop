@@ -142,16 +142,11 @@
 
                         <li class="treeview">
                         <li class="treeview">
-                            <a href="#">
+                            <a href="{{route('admin.manageProduct')}}">
                                 <i class="fa fa-shopping-bag"></i>
                                 <span> Products</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
-                            <ul class="treeview-menu">
-                                <li><a href="{{route('admin.manageProduct')}}"><i class="fa fa-angle-right"></i> Manage Products</a></li>
-                                <li><a href="general.html"><i class="fa fa-angle-right"></i> Show Products</a></li>
-
-                            </ul>
                         </li>
                         <li class="treeview">
                             <a href="{{route('productCategory.index')}}">

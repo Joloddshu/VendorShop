@@ -27,6 +27,11 @@ Route::get('/cart/add/{id}','cartController@addToCart')->name('cart.add');
 Route::get('/products/view  /{id}','cartController@addToCart')->name('product.view');
 Route::get('/user/{id}','ProfileController@show')->name('user.show'); //Retrieve the User profile Using the id
 Route::get('/product/{id}','productController@singleProducts')->name('productController.singleProducts');
+
+//cart add
+
+Route::post('/cart','cartController@store')->name('cart.add');
+
 /*
  * check user have session or not
 */

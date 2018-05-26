@@ -9,7 +9,7 @@
                                 <img class="img-responsive" src="/uploads/products/thumbnails/{{$featuredProduct->product_thumbnail}}" alt="">
                                 <div class="overlay">
                                     <div class="text">
-                                        <form method="post">
+                                        <form method="post" action="{{route('cart.add')}}">
                                             {{csrf_field()}}
                                             <input type="hidden" name="product_id" value="{{$featuredProduct->product_id}}" class="product_cart_id">
                                             <input type="hidden" name="product_name" value="{{$featuredProduct->product_name}}">
@@ -17,7 +17,6 @@
                                             <input type="hidden" name="product_price" value="{{$featuredProduct->product_price}}">
                                             <button type="submit" class="btn btn-primary"><i class="fa fa-shopping-cart"></i></button>
                                             <a  href="{{route('productController.singleProducts',$featuredProduct->product_id)}}" class="btn btn-primary"><i class="fa fa-external-link"></i></a>
-                                            <button type="submit" class="btn btn-primary"><i class="fa fa-eye" aria-hidden="true"></i></button>
                                         </form>
                                     </div>
 

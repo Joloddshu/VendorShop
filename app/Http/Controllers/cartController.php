@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Cart;
+use App\Http\Middleware\sessioncheck;
 use App\Products;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+
 
 class cartController extends Controller
 {
@@ -37,7 +40,15 @@ class cartController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $cart = session()->get('cart');
+        $product []=array(
+            'product_id' =>$request->product_id,
+            'price' =>$request->product_price,
+            'qty' =>$request->product_qty
+        );
+
+
+
     }
 
     /**
